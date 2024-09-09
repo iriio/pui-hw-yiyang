@@ -135,6 +135,7 @@ main {
   gap: 4px;
 }
 
+/* Dropdown styles */
 select {
   padding: 8px;
   border: 2px solid black;
@@ -163,7 +164,7 @@ select {
   font-weight: 600;
 }
 
-/* Product Add Section */
+/* Product Add to Cart Section */
 .product-add {
   width: 240px;
   display: flex;
