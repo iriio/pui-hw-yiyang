@@ -40,7 +40,7 @@ a {
 
 /* Header and Navigation */
 header {
-  padding: 16px 0px 16px 16px;
+  padding: 24px 0px 24px 24px;
   display: flex;
   align-items: stretch;
   gap: 24px;
@@ -72,7 +72,7 @@ nav {
 
 .overview {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: start;
   border-top: 4px solid black;
   flex-grow: 1;
@@ -103,7 +103,7 @@ main {
 /* Product Gallery and Information */
 .product-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 305px);
+  grid-template-columns: repeat(3, 309px);
   gap: 48px;
   justify-content: center;
 }
@@ -119,7 +119,7 @@ main {
 .product-image-details {
   height: 600px;
   width: 600px;
-  border: 2px solid black;
+  border: 4px solid black;
 }
 .product-overview {
   display: flex;
@@ -133,7 +133,7 @@ main {
 .product-image {
   width: 285px;
   height: 285px;
-  border: 2px solid black;
+  border: 4px solid black;
 }
 
 .product-name {
@@ -172,7 +172,7 @@ main {
 /* Dropdown styles */
 select {
   padding: 8px;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 0px;
   width: 100%;
   font-size: 20px;
@@ -218,6 +218,7 @@ button {
   font-size: 20px;
   font-weight: 600;
   padding: 8px 16px;
+  border: 3px solid black;
 }
 
 /* Cart Styles */
@@ -237,9 +238,9 @@ button {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-bottom: 2px solid black;
+  border-bottom: 4px solid black;
   padding-bottom: 24px;
-  gap: 48px;
+  gap: 36px;
 }
 
 .cart-items {
@@ -261,7 +262,7 @@ button {
 .cart-image {
   width: 160px;
   height: 160px;
-  border: 2px solid black;
+  border: 4px solid black;
 }
 
 .cart-details {
@@ -275,7 +276,7 @@ button {
   align-items: start;
 }
 .cart-item-remove {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   text-decoration: underline;
 }
