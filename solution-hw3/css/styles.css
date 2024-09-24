@@ -80,7 +80,7 @@ nav {
 }
 
 nav ul {
-  padding: 0 24px 0 0;
+  padding: 0 64px 0 0;
   list-style: none;
   display: flex;
   gap: 48px;
@@ -112,7 +112,7 @@ main {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  gap: 48px;
+  gap: 72px;
 }
 
 /* Product Details */
@@ -153,12 +153,12 @@ main {
 .product-customization {
   display: flex;
   flex-direction: column;
-  width: 320px;
+  width: 350px;
   text-align: left;
 }
 
 .product-customization {
-  gap: 16px;
+  gap: 36px;
 }
 
 .product-customization div {
@@ -209,7 +209,7 @@ select {
 
 .product-add p {
   font-weight: 600;
-  padding: 0px 16px;
+  padding: 0px 0px 0px 24px;
 }
 
 /* Button Styles */
@@ -217,7 +217,7 @@ button {
   background-color: yellow;
   font-size: 20px;
   font-weight: 600;
-  padding: 8px 16px;
+  padding: 12px 40px;
   border: 3px solid black;
 }
 
