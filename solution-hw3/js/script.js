@@ -12,8 +12,8 @@ const glazingOptions = [
 const packSizeOptions = [
   { size: 1, priceMultiplier: 1 },
   { size: 3, priceMultiplier: 3 },
-  { size: 6, priceMultiplier: 6 },
-  { size: 12, priceMultiplier: 12 },
+  { size: 6, priceMultiplier: 5 },
+  { size: 12, priceMultiplier: 10 },
 ];
 
 // populate the dropdowns dynamically
