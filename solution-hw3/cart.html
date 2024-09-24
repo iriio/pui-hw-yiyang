@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Cart</title>
+
+    <link rel="stylesheet" href="../solution-hw3/css/styles.css" />
+    <script src="../solution-hw3/js/script.js"></script>
+  </head>
+
+  <body>
+    <!-- Header section with logo and navigation -->
+    <header>
+      <div class="header-logo">
+        <!-- Logo links to product page -->
+        <a href="index.html">
+          <img
+            src="../assets/logo/logo-01.svg"
+            alt="Bun Bun bake shop logo"
+            id="logo"
+          />
+        </a>
+      </div>
+
+      <div class="header-info">
+        <!-- Navigation section for Product and Cart page, set active to Product -->
+        <nav>
+          <ul>
+            <li><a href="index.html">Products</a></li>
+            <li><a href="cart.html" class="active">Cart</a></li>
+          </ul>
+        </nav>
+        <!-- Overview text describing the page content -->
+        <div class="overview">
+          <h1>Shopping cart</h1>
+        </div>
+      </div>
+    </header>
+
+    <main id="cart-main">
+      <!-- Shopping cart section -->
+      <div class="cart">
+        <!-- Items in cart section -->
+        <div class="cart-list">
+          <!-- Individual cart item -->
+          <div class="cart-items" id="original">
+            <div class="cart-item-detail">
+              <img
+                src="../assets/products/original-cinnamon-roll.jpg"
+                alt="original cinnamon roll"
+                class="cart-image"
+              />
+              <div class="cart-details">
+                <p>Original Cinnamon Roll</p>
+                <p>Glazing: Keep original</p>
+                <p>Pack Size: 1</p>
+              </div>
+
+              <h2>$2.49</h2>
+            </div>
+
+            <div class="cart-actions">
+              <a href="#" class="cart-item-remove">Remove</a>
+            </div>
+          </div>
+
+          <!-- Second cart item -->
+          <div class="cart-items" id="double-chocolate">
+            <div class="cart-item-detail">
+              <img
+                src="../assets/products/double-chocolate-cinnamon-roll.jpg"
+                alt="double Chocolate Cinnamon Roll"
+                class="cart-image"
+              />
+
+              <div class="cart-details">
+                <p>Double Chocolate Cinnamon Roll</p>
+                <p>Glazing: Sugar milk</p>
+                <p>Pack Size: 6</p>
+              </div>
+
+              <h2>$27.45</h2>
+            </div>
+
+            <div class="cart-actions">
+              <a href="#" class="cart-item-remove">Remove</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart total and checkout button -->
+        <div class="cart-total">
+          <div class="cart-total-price">
+            <h2>Total:</h2>
+            <h2>$29.94</h2>
+          </div>
+          <button type="button">Checkout</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
