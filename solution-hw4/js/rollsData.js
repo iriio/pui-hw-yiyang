@@ -24,5 +24,3 @@ const rolls = {
     imageFile: "strawberry-cinnamon-roll.jpg",
   },
 };
-
-window.rolls = rolls;
