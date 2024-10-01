@@ -1,4 +1,4 @@
-// Parse roll type
+// Parse roll type from the URL
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const rollType = params.get("roll");
@@ -6,7 +6,7 @@ const rollType = params.get("roll");
 // Check if we're on the detail
 if (rollType) {
   // This code only runs on the detail page bcs index is hardcoded
-  // Get roll data from rollsData and update the DOM elements
+  // Get roll data from rollsData and update DOM elmts
   const rollData = rolls[rollType];
   document.querySelector(
     ".overview h1"
@@ -103,10 +103,10 @@ if (rollType) {
     }
   }
 
-  // create an empty cart array to store the added items
+  // Create an empty cart array to store the added items
   const cart = [];
 
-  // cart function to store the selected roll in the cart array
+  // Add to Cart function to store the selected roll in the cart array
   function addToCart() {
     const glazing =
       document.getElementById("glazing").options[
@@ -126,14 +126,14 @@ if (rollType) {
     // Add the roll to the cart array
     cart.push(roll);
 
-    // Log the cart contents to the console (for debuggging)
+    // Log the cart contents to the console (for debugging purposes)
     console.log(cart);
   }
 
   // Initialize the dropdowns and set the default price when the page loads
   window.onload = () => {
-    populateDropdowns(); // Populate glazing and pack size options
-    updatePrice(); // Set the initial price based on the default selections
+    populateDropdowns();
+    updatePrice();
 
     //to prevent flashing of default content, set visible only after loaded
     document.querySelector(".product-content").style.visibility = "visible";
