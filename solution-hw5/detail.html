@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Original Cinnamon Bun</title>
+
+    <link rel="stylesheet" href="../solution-hw5/css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Header section with logo and navigation -->
+    <header>
+      <div class="header-logo">
+        <!-- Logo links to product page -->
+        <a href="index.html">
+          <img
+            src="../assets/logo/logo-01.svg"
+            alt="Bun Bun bake shop logo"
+            id="logo"
+          />
+        </a>
+      </div>
+
+      <div class="header-info">
+        <!-- Navigation section for Product and Cart page, set active to Product -->
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </nav>
+        <!-- Overview text describing the page content -->
+        <div class="overview">
+          <h1>Original cinnamon roll</h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="product-content">
+      <!-- Product information and customization section -->
+      <div class="product-info">
+        <!-- Product overview -->
+        <div class="product-overview">
+          <img
+            src="../assets/products/original-cinnamon-roll.jpg"
+            alt="original cinnamon roll"
+            class="product-image-details"
+          />
+        </div>
+
+        <div class="product-actions">
+          <p class="product-description">
+            <span>Customize our delicious,</span>
+            <span>hand-made cinammon roll to</span>
+            <span>your liking!</span>
+          </p>
+          <!-- Product customization area -->
+          <div class="product-customization">
+            <div>
+              <label for="glazing">Glazing:</label>
+              <select
+                id="glazing"
+                name="glazing"
+                onchange="glazingChange(this)"
+              ></select>
+            </div>
+
+            <div>
+              <label for="pack-size">Pack size:</label>
+              <select
+                id="pack-size"
+                name="pack-size"
+                onchange="packSizeChange(this)"
+              ></select>
+            </div>
+          </div>
+
+          <!-- Product add to cart and pricing -->
+          <div class="product-add">
+            <p class="product-price" id="product-price">$2.49</p>
+            <button type="button" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../solution-hw5/js/rollsData.js"></script>
+    <script src="../solution-hw5/js/script.js" defer></script>
+  </body>
+</html>

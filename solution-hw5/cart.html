@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Cart</title>
+
+    <link rel="stylesheet" href="../solution-hw5/css/styles.css" />
+    <script src="../solution-hw5/js/script.js"></script>
+    <script src="../solution-hw5/js/rollsData.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Header section with logo and navigation -->
+    <header>
+      <div class="header-logo">
+        <!-- Logo links to product page -->
+        <a href="index.html">
+          <img
+            src="../assets/logo/logo-01.svg"
+            alt="Bun Bun bake shop logo"
+            id="logo"
+          />
+        </a>
+      </div>
+
+      <div class="header-info">
+        <!-- Navigation section for Product and Cart page, set active to Product -->
+        <nav>
+          <ul>
+            <li><a href="index.html">Products</a></li>
+            <li><a href="cart.html" class="active">Cart</a></li>
+          </ul>
+        </nav>
+        <!-- Overview text describing the page content -->
+        <div class="overview">
+          <h1>Shopping cart</h1>
+        </div>
+      </div>
+    </header>
+
+    <main id="cart-main">
+      <!-- Shopping cart section -->
+      <div class="cart">
+        <!-- Items in cart section -->
+        <div class="cart-list" id="cart-container">
+          <!-- hw5: dynamically populate cart items here -->
+        </div>
+
+        <!-- Cart total and checkout button -->
+        <div class="cart-total">
+          <div class="cart-total-price">
+            <h2>Total:</h2>
+            <h2 id="total-price">$0.00</h2>
+            <!-- hw5: dynamically update price -->
+          </div>
+          <button type="button">Checkout</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- template for cart items -->
+    <template id="cart-item-template">
+      <div class="cart-items">
+        <div class="cart-item-detail">
+          <img src="" alt="" class="cart-image" />
+          <div class="cart-details">
+            <p class="cart-item-name"></p>
+            <p class="cart-item-glazing"></p>
+            <p class="cart-item-size"></p>
+          </div>
+          <h2 class="cart-item-price"></h2>
+        </div>
+        <div class="cart-actions">
+          <a href="#" class="cart-item-remove">Remove</a>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>

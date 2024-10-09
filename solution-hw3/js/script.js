@@ -79,3 +79,5 @@ function updatePrice(
 // initialize dropdown and set the default price
 populateDropdowns();
 updatePrice();
+
+const fruitList = document.querySelector("#fruitList");
