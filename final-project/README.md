@@ -212,16 +212,36 @@ Accessibility features will include keyboard navigation and alt text for images,
 
 ### _Idea 2_
 
-…
+![synth keyboard](images/sketch2.jpg)
+This idea is to design an interactive synth keyboard site where users can experiment with sound synthesis and visualization, exploring different sounds and effects in real time.
+Engaging elements will include interactive keys, sliders and other fun UI elements for sound adjustments, and real-time audio-visual feedback. Accessibility features might include large, touch-friendly controls for mobile and clear labels on each interactive element to support screen readers.
 
 ### _Idea 3_
 
-…
+![color contrast game](images/sketch3.jpg)
+This game concept is more on teaching users about web accessibility principles, especially color contrast. Players will have mini-games like choosing the correct color contrast for readability and adjusting elements to ensure accessibility.
+The game will be accessible itself, with high-contrast visuals, keyboard navigation, and audio cues to help players understand and apply accessibility standards.
 
 ## Feedback Summary
 
-Summarize all the critiques you received during the lab session (\~300 words).
+1. **Horizontal Scroll Portfolio**:
+
+   - **Strengths**: People found the horizontal layout visually interesting and agreed it would make the portfolio stand out from typical vertical scroll formats. The plan to incorporate minimum animations for transitions to ensure cleanliness and accessibility received positive feedback.
+   - **Concerns**: However, some raised concerns about usability, particularly on mobile devices, where horizontal scrolling can feel unintuitive. Additionally, the challenge of making the site accessible for users who rely on keyboard navigation is challenging. Some suggested that an alternative navigation option, like a skip-to-section thing, can improve accessibility.
+
+2. **Synth Keyboard Website**:
+
+   - **Strengths**: This idea got the most feedback on the creativity end, as to its potential to engage users with interactive sound manipulation. The feedbacks I got emphasized how the project could demonstrate both front-end skills and a unique audio component. Many felt that a real-time sound visualizer would be exciting, with some suggesting that there could be a lot of visual elements to play with since the UI would be fairly straightforward.
+   - **Concerns**: The main concern here was about technical feasibility and performance optimization, as real-time audio processing can be demanding.
+
+3. **Educational Game on Accessibility and Contrast**:
+   - **Strengths**: They appreciated the game’s educational value and though it's an impactful way to engage users in learning about accessibility. The simple, quiz-style interaction was seen as user-friendly, and the focus on accessibility directly aligned with important web standards.
+   - **Concerns**: While the game idea got good critiques, people have some doubts on how engaging it could be in practice, because the concept felt less interactive and dynamic than the other two. Some suggested adding more game-like elements, such as levels or rewards, to get more user motivation. People also recommended making sure it didn’t feel too similar to existing accessibility tools or games.
 
 ## Feedback Digestion
 
-Digest the feedback you got in the lab (\~300 words). Indicate which critique you will act on in your next design and why you chose to incorporate/dismiss pieces of critique.
+After considering the feedback, I’m leaning toward the Synth Keyboard Website for my final project. The horizontal scroll portfolio is visually unique, but feedback pointed out that horizontal scrolling can feel awkward on mobile, where people are used to a vertical layout. While I could add alternative navigation, that would make the site more complex than intended, and I’d prefer to keep things clean and intuitive.
+
+The accessibility game idea has a lot of educational value, but some thought it might need extra interactive features—like levels or rewards—to keep people engaged. While these additions would make the game more dynamic, they’d also increase the scope, potentially making the project more challenging to execute effectively within the time I have since there are far more level design to do than actual implementation.
+
+The Synth Keyboard Website feels like the right fit because it brings together UI design and audio elements in a fun, visually engaging way. I’ll keep the feedback about performance in mind, especially since real-time audio can be tricky. Using Tone.js should help keep things lightweight and manageable, and I’ll start with a simpler sound set to ensure smooth performance.
