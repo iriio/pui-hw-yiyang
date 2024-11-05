@@ -125,77 +125,76 @@ Remember to keep track of your prompts and usage for [FP4 writeup](#part-6-gener
 
 ## Project Description
 
-Briefly restate your motivation and a short description of your project.
+This project is a web-based synthesizer interface that allows users to experiment with sound generation and modulation through an intuitive, interactive layout. My motivation is to create a visually engaging, functional synthesizer that mimics the look and feel of physical synthesizers, enabling users to manipulate sound parameters directly on screen.
 
 ## High-Fi Prototypes
 
 ### _Prototype 1_
 
-![title for prototype1](images/prototype1.png)
+![Interface elements](images/prototype1.png)
 
-A brief description and summary of the user feedback (\<100 words, 2 images)
+Prototype 1 focuses on the individual interface elements I plan to use in the synthesizer, including sliders, knobs, screens, graphics, and keys. These components establish the essential controls that users will interact with to adjust sound parameters. Initial feedback emphasized the importance of making each element responsive and visually intuitive to enhance usability, as well as some issues with accessibility.
 
 ### _Prototype 2_
 
-…
+![Interface mockup](images/prototype2.png)
+Prototype 2 shows how the elements from Prototype 1 can come together into a cohesive interface. This mockup demonstrates a possible layout, showing how controls like oscillators, envelopes, and filters are organized. Feedback on this prototype suggested refining the layout for clarity and ease of use, as well as adding visual indicators for how to start using these controls, possible presets, etc.
 
 ## Usability Test
 
-Discuss the user feedback you got during the evaluation / usability test (\~300 words). Indicate which feedback you implemented, inspired new directions, or otherwise influenced your final design.
+During usability testing, users appreciated the overall layout but suggested that certain controls, particularly sliders and buttons, could be more responsive and precise. Improving the visual feedback when adjusting parameters like oscillators and filters, to make it clearer which settings are active.
+
+Some users found it challenging to distinguish between the effects of different controls, indicating that clearer labeling or tooltips could improve usability. Additionally, users proposed adding a feature that shows a visual waveform in real-time, which I have already added in the prototype above since this feedback came before that, to help them understand how their adjustments impact sound.
 
 ## Updated Designs
 
-Show screenshots of your updated design based on the user feedback (\<100 words, \~2 images).
+![refined mockup](images/prototype-refine.png)
+The updated design included some presets where user can simply click on a button and experience the change in sound, as well as a reset button to put everything back to default. A recording functionality is in consideration given the feedback, though actual implementation might differ depending on the complexity & if an export need to be included with this feature.
+This update also included a pop-up tooltip to inform users of the keybaord control feature.
+Smaller updates also include a bolder font size overall, and slight adjustments to the color, though the color palette still needs refinement to align with accessibility standards.
 
 ## Feedback Summary
 
-Summarize the feedback you received in the lab session and discuss how it influenced your design (\~300 words).
+In the lab session, feedback focused on making the interface more accessible and intuitive, particularly by improving the slider and button responses. People said that the visual feedback for active controls made the synthesizer more engaging and easier to use. Some suggestions involved further refining the control layout for different screen sizes to ensure that the synthesizer remains usable on various devices, as well as possibilities to make it even simpler to cater to a wider audience.
 
 ## Milestones
 
-Outline weekly milestones to plan your expected implementation progress until the end of the semester (\~300 words).
-
 ### _Implementation Plan_
 
-- [ ] Week 9 Oct 28 \- Nov 1:
+- [x] **Week 9 Oct 28 - Nov 1**:
   - [x] FP1 due
-  - [ ] ...
-- [ ] Week 10 Nov 4 \- Nov 8:
-
-  - [ ] FP2 due
-
-- [ ] Week 11 Nov 11 \- Nov 15:
-- [ ] Week 12 Nov 18 \- Nov 22:
-- [ ] Week 13 Nov 25 \- Nov 29:
-
-  - [ ] Thanksgiving
-
-- [ ] Week 14 Dec 2 \- Dec 6:
+  - [x] Complete Hi-Fi prototype 1 usability testing and iterate based on feedback.
+- [x] **Week 10 Nov 4 - Nov 8**:
+  - [x] FP2 due
+  - [x] Begin final design adjustments and integrate visual feedback enhancements.
+- [ ] **Week 11 Nov 11 - Nov 15**:
+  - [ ] Implement responsive design elements for different screen sizes.
+  - [ ] Refine the interaction for sliders and buttons.
+- [ ] **Week 12 Nov 18 - Nov 22**:
+  - [ ] Finalize integration of visual waveform display.
+  - [ ] Conduct additional usability tests for refined interactions.
+- [ ] **Week 13 Nov 25 - Nov 29**:
+  - [ ] Thanksgiving break; refine documentation and gather final feedback.
+- [ ] **Week 14 Dec 2 - Dec 6**:
   - [ ] FP4 due
+  - [ ] Final testing and debugging before project presentation.
 
 ### _Libraries and Other Components_
 
-List the JS libraries and other components (if applicable) that you plan to use.
-
--
+- **Tone.js**: For audio synthesis and sound manipulation.
+- **Anime.js**: For smooth animations on interactive elements.
+- **Three.js**: For potential 3D visualizations of the waveform.
 
 ## Generative AI Use Plan
 
-Outline how you plan to use Generative AI tools to aid in the implementation (\~300 words).
-
 ### _Tool Use_
 
-What would you use? Edit the list given your plan. For each tool, explain briefly on what do you expect Generative AI to help you with and what might it not be able to help you with.
-
-- ChatGPT
-  - I will use it for … because it can help me …
-  - I will not use it for … because it might not be able to help me with …
-- GitHub Copilot
-- ...
+- **ChatGPT**: I will use ChatGPT for code suggestions and troubleshooting, especially for JavaScript syntax and interactive features. It can help me brainstorm and implement complex features but might not be effective in testing or debugging highly specific synthesis code.
+- **GitHub Copilot**: Useful for autocompleting code based on context, speeding up coding, especially for repetitive tasks. However, I will avoid using it for sensitive data input to ensure responsible use.
 
 ### _Responsible Use_
 
-How would you use Generative AI responsibly?
+I will use Generative AI responsibly by verifying all AI-generated code and ideas before actually implementing them, ensuring that the suggestions align with the project’s accessibility and usability goals. I will also document the AI assistance to maintain transparency regarding its role in my project.
 
 ---
 
