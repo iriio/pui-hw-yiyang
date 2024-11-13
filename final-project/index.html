@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>test</h1>
+        <button id="startAudio">Start</button>
+      </div>
+
+      <div class="visualizer-container">
+        <canvas id="waveform"></canvas>
+        <div class="visualizer-label">Main Waveform Output</div>
+      </div>
+
+      <div class="controls">
+        <div class="module">
+          <div class="module-header">
+            <h2>Oscillator</h2>
+            <div class="help-icon">
+              <i class="fas fa-question-circle"></i>
+              <div class="help-tooltip">
+                Controls the basic sound generation. Type changes the wave
+                shape, Mix blends between two oscillators, and Sub adds a lower
+                octave.
+              </div>
+            </div>
+          </div>
+          <div class="control">
+            <label>Type</label>
+            <select id="oscType">
+              <option value="sine" selected>Sine</option>
+              <option value="square">Square</option>
+              <option value="sawtooth">Sawtooth</option>
+              <option value="triangle">Triangle</option>
+            </select>
+          </div>
+          <div class="control">
+            <label>Mix</label>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+              id="oscMix"
+            />
+          </div>
+          <div class="control">
+            <label>Sub Oscillator</label>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0"
+              id="subOsc"
+            />
+          </div>
+          <div class="control">
+            <label>Detune</label>
+            <input type="range" min="-100" max="100" value="0" id="detune" />
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-header">
+            <h2>Filter</h2>
+            <div class="help-icon">
+              <i class="fas fa-question-circle"></i>
+              <div class="help-tooltip">
+                Shapes the tone of the sound. Cutoff controls brightness,
+                Resonance emphasizes frequencies around the cutoff point.
+              </div>
+            </div>
+          </div>
+          <div class="control">
+            <label>Cutoff</label>
+            <input
+              type="range"
+              min="0"
+              max="10"
+              step="0.01"
+              value="10"
+              id="filterFreq"
+            />
+          </div>
+          <div class="control">
+            <label>Resonance</label>
+            <input
+              type="range"
+              min="0"
+              max="30"
+              step="0.1"
+              value="1"
+              id="filterRes"
+            />
+          </div>
+          <div class="control">
+            <label>Filter Drive</label>
+            <input
+              type="range"
+              min="1"
+              max="10"
+              step="0.1"
+              value="1"
+              id="filterDrive"
+            />
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-header">
+            <h2>Envelope</h2>
+            <div class="help-icon">
+              <i class="fas fa-question-circle"></i>
+              <div class="help-tooltip">
+                Controls how the sound changes over time. Attack is the fade-in
+                time, Decay and Sustain control the middle portion, Release is
+                the fade-out time.
+              </div>
+            </div>
+          </div>
+          <div class="control">
+            <label>Attack</label>
+            <input
+              type="range"
+              min="0"
+              max="5"
+              step="0.01"
+              value="0.1"
+              id="attack"
+            />
+          </div>
+          <div class="control">
+            <label>Decay</label>
+            <input
+              type="range"
+              min="0"
+              max="5"
+              step="0.01"
+              value="0.1"
+              id="decay"
+            />
+          </div>
+          <div class="control">
+            <label>Sustain</label>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+              id="sustain"
+            />
+          </div>
+          <div class="control">
+            <label>Release</label>
+            <input
+              type="range"
+              min="0"
+              max="5"
+              step="0.01"
+              value="0.1"
+              id="release"
+            />
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-header">
+            <h2>Effects</h2>
+            <div class="help-icon">
+              <i class="fas fa-question-circle"></i>
+              <div class="help-tooltip">
+                Add character to the sound. Distortion adds grit, Delay creates
+                echoes, and Width controls stereo spread.
+              </div>
+            </div>
+          </div>
+          <div class="control">
+            <label>Distortion</label>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0"
+              id="distortion"
+            />
+          </div>
+          <div class="control">
+            <label>Delay Time</label>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.3"
+              id="delayTime"
+            />
+          </div>
+          <div class="control">
+            <label>Delay Feedback</label>
+            <input
+              type="range"
+              min="0"
+              max="0.9"
+              step="0.01"
+              value="0.4"
+              id="delayFeedback"
+            />
+          </div>
+          <div class="control">
+            <label>Stereo Width</label>
+            <input
+              type="range"
+              min="-1"
+              max="1"
+              step="0.01"
+              value="0"
+              id="stereoWidth"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="keyboard-container">
+        <div id="keyboard" class="keyboard"></div>
+      </div>
+    </div>
+
+    <script src="synth.js"></script>
+  </body>
+</html>
