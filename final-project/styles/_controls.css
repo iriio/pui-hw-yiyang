@@ -1,0 +1,215 @@
+/* Control Layout */
+.controls {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  padding: 4px;
+  height: 100%;
+}
+
+/* Module Container */
+.module {
+  padding: 8px 8px 8px;
+  border-radius: 8px;
+  border: 1px solid #545454;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.module-header {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  align-items: center;
+  justify-content: start;
+  padding-left: 12px;
+}
+
+.module h2 {
+  font-size: 1.1em;
+  color: #545454;
+  font-weight: 300;
+  margin: 0;
+  position: relative;
+  background-color: var(--color-bg-main);
+  line-height: 0;
+}
+.module h2::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  top: -16px;
+  left: -3px;
+  right: -3px;
+  border: 1px solid #545454;
+  background-color: var(--color-bg-main);
+  z-index: -1;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Control Container */
+.control-container {
+  position: relative;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  /* background: var(--color-bg-tooltip); */
+  /* padding: 4px; */
+  border-radius: 8px;
+  gap: 8px;
+  flex: 1; /* Take up remaining space */
+  z-index: 1;
+  /* box-shadow: var(--shadow-out-md); */
+}
+
+/* Control Elements */
+.control {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-control);
+  padding: 0 12px;
+  border-radius: 5px;
+  box-shadow: var(--shadow-in-sm);
+  flex: 1;
+  border: 1px solid var(--color-border-beige);
+
+  position: relative;
+}
+
+/* Oscillator Button Styles */
+.osc {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 8px;
+}
+
+.osc-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.osc-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  width: 100%;
+  flex: 1;
+  position: relative;
+}
+
+.osc-button {
+  width: 1fr;
+  padding: 16px 24px 4px;
+}
+
+/* Label Styles */
+
+.controls label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  height: 12px;
+  color: var(--color-text-dark);
+  margin: 4px 0 8px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Track styles */
+.control input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  background: linear-gradient(
+    to right,
+    var(--color-secondary) 0%,
+    var(--color-secondary) var(--range-progress, 50%),
+    var(--color-bg-slider) var(--range-progress, 50%),
+    var(--color-bg-slider) 100%
+  );
+  cursor: pointer;
+  box-shadow: var(--shadow-in-lg);
+  position: relative;
+}
+
+.control input[type="range"]::after {
+  content: "";
+  position: absolute;
+  border: 1px solid var(--color-border-lighter);
+  box-shadow: inset -1px -1px 1px var(--color-shadow-dark-50);
+  border-radius: 12px;
+  top: -8px;
+  bottom: -8px;
+  left: -8px;
+  right: -8px;
+  z-index: 0;
+}
+
+/* Thumb styles */
+.control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 28px;
+  width: 20px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  box-shadow: inset 3px 0 1px var(--color-shadow-dark-50),
+    inset -3px 0 1px var(--color-shadow-dark),
+    inset -4px 0 0 var(--color-shadow-light), inset 4px 0 0 var(--color-white),
+    1px 1px 1px var(--color-shadow-dark-50), inset 8px 0 0 var(--color-primary),
+    inset -8px 0 0 var(--color-primary),
+    inset 9px 0 1px var(--color-shadow-dark-50),
+    inset -9px 0 1px var(--color-shadow-dark-50),
+    inset -12px 0 0 var(--color-secondary);
+  border: 1px outset var(--color-border-lighter);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.control input[type="range"].active -webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 28px;
+  width: 20px;
+  background: red;
+  border-radius: 2px;
+  box-shadow: inset 3px 0 1px var(--color-shadow-dark-50),
+    inset -3px 0 1px var(--color-shadow-dark),
+    inset -4px 0 0 var(--color-shadow-light), inset 4px 0 0 var(--color-white),
+    1px 1px 1px var(--color-shadow-dark-50), inset 8px 0 0 var(--color-primary),
+    inset -8px 0 0 var(--color-primary),
+    inset 9px 0 1px var(--color-shadow-dark-50),
+    inset -9px 0 1px var(--color-shadow-dark-50),
+    inset -12px 0 0 var(--color-secondary);
+  border: 1px outset var(--color-border-lighter);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hover & Active states */
+
+.control select {
+  width: 100%;
+  padding: 8px;
+  background: var(--color-bg-control);
+  border: none;
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+}

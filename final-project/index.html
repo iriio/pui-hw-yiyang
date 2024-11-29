@@ -4,241 +4,381 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>test</title>
+
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css"
+  />
+
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="header">
-        <h1>test</h1>
-        <button id="startAudio">Start</button>
-      </div>
+    <div class="app-layout">
+      <!-- Mobile Header -->
+      <header class="mobile-header">
+        <button class="menu-button" id="menuToggle">
+          <i class="ph ph-list"></i>
+        </button>
+        <h1>TONE <BR></BR> IN PROGRESS <BR></BR> V4.0</h1>
+      </header>
+      <aside class="sidebar">
+        <h1>TONE <BR></BR> WIP <BR></BR> V4.3</h1>
+        <nav class="side-nav-content">
+          <div class="nav-button-wrapper button-wrapper button-wrapper">
+            <a href="landing.html" class="nav-button btn light"><i class="ph-light ph-house"></i></a>
+          </div>
+          <div class="nav-button-wrapper button-wrapper">
+            <a href="/index.html" class="nav-button active btn light"><i class="ph-light ph-cassette-tape"></i></a>
+          </div>
+          <div class="nav-button-wrapper button-wrapper">
+            <a href="tutorial.html" class="nav-button btn light"><i class="ph-light ph-book-open-user"></i></a>
+          </div>
+          <div class="nav-button-wrapper button-wrapper">
+            <a href="about.html" class="nav-button btn light"><i class="ph-light ph-info"></i></a>
+            
+           
+          </div>
+          
+        </nav>
+        <h2>YIYANG ZHANG</h2>
+      </aside>
 
-      <div class="visualizer-container">
-        <canvas id="waveform"></canvas>
-        <div class="visualizer-label">Main Waveform Output</div>
-      </div>
-
-      <div class="controls">
-        <div class="module">
-          <div class="module-header">
-            <h2>Oscillator</h2>
-            <div class="help-icon">
-              <i class="fas fa-question-circle"></i>
-              <div class="help-tooltip">
-                Controls the basic sound generation. Type changes the wave
-                shape, Mix blends between two oscillators, and Sub adds a lower
-                octave.
+      <div class="main-content-wrapper">
+        <div class="container">
+          <div class="monitor">
+            <div class="monitor-right">
+              <div class="viz-container">
+                <span class="viz-label">Waveform</span>
+                <canvas id="waveform"></canvas>
+              </div>
+              <div class="viz-container">
+                <span class="viz-label">Raw Signal</span>
+                <canvas id="preFilterVisualizer"></canvas>
+              </div>
+              <div class="viz-container">
+                <span class="viz-label">ADSR Envelope</span>
+                <canvas id="postFilterVisualizer"></canvas>
               </div>
             </div>
           </div>
-          <div class="control">
-            <label>Type</label>
-            <select id="oscType">
-              <option value="sine" selected>Sine</option>
-              <option value="square">Square</option>
-              <option value="sawtooth">Sawtooth</option>
-              <option value="triangle">Triangle</option>
-            </select>
-          </div>
-          <div class="control">
-            <label>Mix</label>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value="0.5"
-              id="oscMix"
-            />
-          </div>
-          <div class="control">
-            <label>Sub Oscillator</label>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value="0"
-              id="subOsc"
-            />
-          </div>
-          <div class="control">
-            <label>Detune</label>
-            <input type="range" min="-100" max="100" value="0" id="detune" />
+       
+            <div class="tab-buttons">
+              <button
+                class="tab-button active button-preset"
+                data-tab="sequence"
+              >
+                COMPOSE
+              </button>
+              <button class="tab-button button-preset" data-tab="design">
+                DESIGN
+              </button>
+            </div>
+         
+          <div class="tab-container">
+
+
+            <div class="tab-content-wrapper">
+              <span class="screw top-left"></span>
+              <span class="screw top-right"></span>
+
+              <div id="sequence-panel" class="tab-panel active">
+                <div class="timeline-layout">
+                  <div class="timeline-container">
+                    <div class="timeline-content">
+                      <div class="drum-wrapper">
+                        <h2>DRUMS</h2>
+                        <div class="sequence-row drums"></div>
+                      </div>
+                      <div class="note-wrapper">
+                        <h2>NOTES</h2>
+                        <div class="sequence-row melodic"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="design-panel" class="tab-panel">
+                <div class="controls">
+                  <!-- Oscillator Module -->
+                  <div class="module">
+                    <div class="module-header">
+                      <h2>OSCILLATOR</h2>
+                    </div>
+                    <div class="control-container">
+                      <div class="osc">
+                        <div class="osc-group">
+                          <label>OSC 1</label>
+                          <div class="osc-buttons" id="osc1Buttons">
+                            <div class="button-wrapper">
+                              <div class="indicator-light"></div>
+                              <button class="osc-button active btn dark" data-type="sine">
+                                Sine
+                              </button>
+                            
+                            </div>
+                            <div class="button-wrapper">
+                              <div class="indicator-light"></div>
+                              <button class="osc-button btn dark" data-type="square">
+                                Sqr
+                              </button>
+                           
+                            </div>
+                            <div class="button-wrapper">
+                              <div class="indicator-light"></div>
+                              <button class="osc-button btn dark" data-type="sawtooth">
+                                Saw
+                              </button>
+                            
+                            </div>
+                            <div class="button-wrapper">
+                              <div class="indicator-light"></div>
+                              <button class="osc-button btn dark" data-type="triangle">
+                                Tri
+                              </button>
+                          
+                            </div>
+                          </div>
+                        </div>
+                        <div class="osc-group">
+                          <label>OSC 2</label>
+                          <div class="osc-buttons" id="osc2Buttons">
+                            <div class="button-wrapper">
+                              <div class="indicator-light"></div>
+                              <button class="osc-button active btn dark" data-type="sine">
+                                Sine
+                              </button>
+                            </div>
+                            <div class="button-wrapper">
+                              <div class="indicator-light"></div>
+                              <button class="osc-button btn dark" data-type="square">
+                                Sqr
+                              </button>
+                            </div>
+                            <div class="button-wrapper">
+                              <div class="indicator-light"></div>
+                              <button class="osc-button btn dark" data-type="sawtooth">
+                                Saw
+                              </button>
+                            </div>
+                            <div class="button-wrapper">
+                              <div class="indicator-light"></div>
+                              <button class="osc-button btn dark" data-type="triangle">
+                                Tri
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="control">
+                        <label>Mix</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="oscMix"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value="0.5"
+                          />
+                          
+                        </div>
+                      </div>
+                      <div class="control">
+                        <label>Sub Oscillator</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="subOsc"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value="0"
+                          />
+                        </div>
+                      </div>
+                      <div class="control">
+                        <label>Detune</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="detune"
+                            min="-1"
+                            max="1"
+                            step="0.01"
+                            value="0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Filter Module -->
+                  <div class="module">
+                    <div class="module-header">
+                      <h2>FILTER</h2>
+                    </div>
+                    <div class="control-container">
+                      <div class="control">
+                        <label>Cutoff</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="filterFreq"
+                            min="0"
+                            max="10"
+                            step="0.1"
+                            value="5"
+                          />
+                        </div>
+                      </div>
+                      <div class="control">
+                        <label>Resonance</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="filterRes"
+                            min="0"
+                            max="20"
+                            step="0.1"
+                            value="1"
+                          />
+                        </div>
+                      </div>
+                      <div class="control">
+                        <label>Filter Type</label>
+                        <div id="filterTypeButtons" class="osc-buttons">
+                          <div class="button-wrapper">
+                            <div class="indicator-light"></div>
+                            <button class="osc-button active btn dark" data-type="lowpass">
+                              Low
+                            </button>
+                          </div>
+                          <div class="button-wrapper">
+                            <div class="indicator-light"></div>
+                            <button class="osc-button btn dark" data-type="highpass">
+                              High
+                            </button>
+                          </div>
+                          <div class="button-wrapper">
+                            <div class="indicator-light"></div>
+                            <button class="osc-button btn dark" data-type="bandpass">
+                              Band
+                            </button>
+                          </div>
+                          <div class="button-wrapper">
+                            <div class="indicator-light"></div>
+                            <button class="osc-button btn dark" data-type="notch">
+                              Notch
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="control">
+                        <label>Drive Amount</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="driveAmount"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value="0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Envelope Module -->
+                  <div class="module">
+                    <div class="module-header">
+                      <h2>ENVELOPE</h2>
+                    </div>
+                    <div class="control-container">
+                      <div class="control">
+                        <label>Attack</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="attack"
+                            min="0"
+                            max="2"
+                            step="0.01"
+                            value="0.01"
+                          />
+                        </div>
+                      </div>
+                      <div class="control">
+                        <label>Decay</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="decay"
+                            min="0"
+                            max="2"
+                            step="0.01"
+                            value="0.1"
+                          />
+                        </div>
+                      </div>
+                      <div class="control">
+                        <label>Sustain</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="sustain"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value="0.5"
+                          />
+                        </div>
+                      </div>
+                      <div class="control">
+                        <label>Release</label>
+                        <div class="input-container ">
+                          <input
+                            type="range"
+                            id="release"
+                            min="0"
+                            max="4"
+                            step="0.01"
+                            value="0.1"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="screw bottom-left"></span>
+              <span class="screw bottom-right"></span>
+            </div>
+
+            <div class="transport-controls"></div>
           </div>
         </div>
+        <div id="keyboard" class="keyboard">
 
-        <div class="module">
-          <div class="module-header">
-            <h2>Filter</h2>
-            <div class="help-icon">
-              <i class="fas fa-question-circle"></i>
-              <div class="help-tooltip">
-                Shapes the tone of the sound. Cutoff controls brightness,
-                Resonance emphasizes frequencies around the cutoff point.
-              </div>
-            </div>
-          </div>
-          <div class="control">
-            <label>Cutoff</label>
-            <input
-              type="range"
-              min="0"
-              max="10"
-              step="0.01"
-              value="10"
-              id="filterFreq"
-            />
-          </div>
-          <div class="control">
-            <label>Resonance</label>
-            <input
-              type="range"
-              min="0"
-              max="30"
-              step="0.1"
-              value="1"
-              id="filterRes"
-            />
-          </div>
-          <div class="control">
-            <label>Filter Drive</label>
-            <input
-              type="range"
-              min="1"
-              max="10"
-              step="0.1"
-              value="1"
-              id="filterDrive"
-            />
-          </div>
-        </div>
-
-        <div class="module">
-          <div class="module-header">
-            <h2>Envelope</h2>
-            <div class="help-icon">
-              <i class="fas fa-question-circle"></i>
-              <div class="help-tooltip">
-                Controls how the sound changes over time. Attack is the fade-in
-                time, Decay and Sustain control the middle portion, Release is
-                the fade-out time.
-              </div>
-            </div>
-          </div>
-          <div class="control">
-            <label>Attack</label>
-            <input
-              type="range"
-              min="0"
-              max="5"
-              step="0.01"
-              value="0.1"
-              id="attack"
-            />
-          </div>
-          <div class="control">
-            <label>Decay</label>
-            <input
-              type="range"
-              min="0"
-              max="5"
-              step="0.01"
-              value="0.1"
-              id="decay"
-            />
-          </div>
-          <div class="control">
-            <label>Sustain</label>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value="0.5"
-              id="sustain"
-            />
-          </div>
-          <div class="control">
-            <label>Release</label>
-            <input
-              type="range"
-              min="0"
-              max="5"
-              step="0.01"
-              value="0.1"
-              id="release"
-            />
-          </div>
-        </div>
-
-        <div class="module">
-          <div class="module-header">
-            <h2>Effects</h2>
-            <div class="help-icon">
-              <i class="fas fa-question-circle"></i>
-              <div class="help-tooltip">
-                Add character to the sound. Distortion adds grit, Delay creates
-                echoes, and Width controls stereo spread.
-              </div>
-            </div>
-          </div>
-          <div class="control">
-            <label>Distortion</label>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value="0"
-              id="distortion"
-            />
-          </div>
-          <div class="control">
-            <label>Delay Time</label>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value="0.3"
-              id="delayTime"
-            />
-          </div>
-          <div class="control">
-            <label>Delay Feedback</label>
-            <input
-              type="range"
-              min="0"
-              max="0.9"
-              step="0.01"
-              value="0.4"
-              id="delayFeedback"
-            />
-          </div>
-          <div class="control">
-            <label>Stereo Width</label>
-            <input
-              type="range"
-              min="-1"
-              max="1"
-              step="0.01"
-              value="0"
-              id="stereoWidth"
-            />
-          </div>
         </div>
       </div>
 
-      <div class="keyboard-container">
-        <div id="keyboard" class="keyboard"></div>
-      </div>
+
     </div>
 
-    <script src="synth.js"></script>
+    <script src="http://unpkg.com/tone"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

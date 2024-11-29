@@ -1,0 +1,195 @@
+/* Timeline Layout */
+.timeline-layout {
+  display: flex;
+  gap: 16px;
+  background: var(--color-bg-module);
+  border-radius: 8px;
+  padding: 24px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tab-panel.active {
+  height: 100%;
+}
+
+.timeline-container {
+  background: var(--color-bg-tooltip);
+  border-radius: 2px;
+  padding: 4px;
+  height: 100%;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 400px;
+  position: relative;
+}
+
+.timeline-content {
+  background-color: var(--color-bg-main);
+  flex: 1;
+  position: relative;
+  border-radius: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
+  gap: 0px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Steps and Markers */
+.step-column {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 60px;
+  width: 60px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--color-border-dark);
+}
+
+.step-marker {
+  height: 20px;
+  padding: 4px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  background: var(--color-bg-module);
+  border-bottom: 1px solid var(--color-border-beige);
+  box-shadow: inset 0px -2px 2px var(--color-shadow-dark),
+    inset 1px 0 2px var(--color-white),
+    inset -0.5px 0 3px var(--color-shadow-light),
+    inset 0px -1px 3px var(--color-shadow-light-30);
+}
+
+.step {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px;
+  gap: 4px;
+}
+
+.step:hover {
+  background: var(--color-hover);
+}
+
+.step.current {
+  background: #e7610830;
+}
+
+/* Playhead */
+.playhead {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: var(--color-secondary);
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: left 0.1s linear;
+}
+
+.playhead::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -4px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--color-secondary);
+}
+
+/* Notes and Sequences */
+.sequence-row {
+  display: flex;
+  position: relative;
+  min-width: min-content;
+  height: 100%;
+}
+
+.note {
+  padding-top: 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  width: 90%;
+  aspect-ratio: 2.5;
+  text-align: center;
+  z-index: 2;
+  border: 1px solid var(--color-border-lighter);
+  background-color: var(--color-white);
+}
+
+.drum-note {
+  border-bottom: 4px solid var(--color-accent-red);
+}
+
+.melodic-note {
+  border-bottom: 4px solid var(--color-accent-blue);
+}
+
+.drum-wrapper,
+.note-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50%;
+  min-width: min-content;
+}
+
+/* Headers */
+.timeline-container h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  position: sticky;
+  z-index: 2;
+  padding: 0 4px;
+  min-width: 60px;
+  height: 100%;
+  border-right: 1px solid var(--color-black);
+}
+
+.row-header {
+  position: sticky;
+  left: 0;
+  background: var(--color-bg-tooltip);
+  color: var(--color-text-light);
+  padding: 8px 16px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-border-dark);
+  z-index: 2;
+}
+
+/* Scrollbar Styles */
+.timeline-content::-webkit-scrollbar {
+  height: 8px;
+}
+
+.timeline-content::-webkit-scrollbar-track {
+  background: var(--color-bg-main);
+  border-radius: 4px;
+}
+
+.timeline-content::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+
+.timeline-content::-webkit-scrollbar-thumb:hover {
+  background: #d55706;
+}

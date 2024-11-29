@@ -1,0 +1,364 @@
+/* ==========================================================================
+   Font Imports 
+   ========================================================================== */
+@font-face {
+  font-family: "DIN";
+  src: url("../font/DIN-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "DIN";
+  src: url("../font/DIN-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "DIN";
+  src: url("../font/DIN-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "DIN";
+  src: url("../font/DIN-Bold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "VictorMono";
+  src: url("../font/VictorMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+/* ==========================================================================
+     Reset & Base Styles
+     ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "DIN", sans-serif;
+  font-weight: 500;
+}
+
+body {
+  background: var(--color-bg-light);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  padding: 8px;
+  height: 100vh;
+}
+
+/* ==========================================================================
+     Layout Components
+     ========================================================================== */
+
+/* App Layout */
+.app-layout {
+  display: flex;
+  height: 100%;
+  position: relative;
+  padding: 8px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-radius: 8px;
+  border: 1px outset var(--color-black);
+  box-shadow: inset 2px 2px 4px var(--color-shadow-dark),
+    inset 8px 8px 0 var(--color-shadow-dark-50),
+    inset -8px -8px 0 var(--color-shadow-dark);
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 120px;
+  align-items: center;
+  background: var(--color-bg-main);
+  height: 100%;
+  gap: 20px;
+  padding: 12px 28px 8px 12px;
+  justify-content: space-between;
+
+  position: relative;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  box-shadow: inset -18px 0px 2px -2px var(--color-shadow-dark-50),
+    inset -7px 0px 5px -3px var(--color-shadow-dark-50),
+    inset -20px 0px 5px -3px white, inset 2px -2px 2px var(--color-shadow-light),
+    -2px -2px 2px var(--color-shadow-light),
+    inset 2px 2px 2px var(--color-shadow-light),
+    inset 6px 6px 4px var(--color-primary),
+    inset 6px -6px 4px var(--color-primary), 0 2px 2px var(--color-shadow-light);
+}
+
+.sidebar h1,
+.sidebar h2 {
+  font-family: "VictorMono";
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  background-color: var(--color-black);
+  color: transparent;
+  text-shadow: -0.5px -0.5px 1px #ffffff50;
+  background-clip: text;
+}
+
+.sidebar h2 {
+  display: flex;
+  aspect-ratio: 1.5;
+  height: fit-content;
+  padding: 4px;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.side-nav-content {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  justify-content: end;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.nav-button {
+  aspect-ratio: 2.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav-button i {
+  font-size: 30px;
+}
+
+.nav-button span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.nav-button.active i,
+.nav-button:active i,
+.nav-button.active span,
+.nav-button:active span {
+  color: var(--color-secondary);
+  font-weight: 500;
+}
+
+.nav-button:hover {
+  background-color: var(--color-bg-light);
+}
+
+/* Main Content */
+.main-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  min-height: 100%;
+  padding: 8px;
+  background-color: var(--color-bg-main);
+  overflow: hidden;
+  padding-left: 24px;
+  box-shadow: inset 10px 0px 5px var(--color-shadow-dark-50),
+    inset 2px 0px 5px var(--color-shadow-dark-50),
+    inset 12px 0px 5px var(--color-white);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+     Monitor Grid Layout
+     ========================================================================== */
+.monitor {
+  display: flex;
+  height: fit-content;
+  width: 100%;
+  gap: var(--spacing-sm);
+  z-index: 3;
+}
+
+.monitor-left {
+  display: flex;
+  flex: 0 0 240px;
+}
+
+.monitor-right {
+  display: flex;
+  flex: 1;
+}
+
+/* ==========================================================================
+     Visualization Components
+     ========================================================================== */
+.viz-container {
+  position: relative;
+  background: var(--color-bg-tooltip);
+  border-radius: 2px;
+  margin-bottom: 8px;
+  height: 120px;
+  width: 100%;
+  flex: 1;
+
+  background-image: linear-gradient(357deg, #262626 65%, transparent 66%),
+    linear-gradient(#2d2d2d, #4d4d4d);
+  box-shadow: inset 0 1px 2px var(--color-black),
+    inset 0 0 10px var(--color-black);
+}
+
+.viz-container canvas {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+.viz-label {
+  position: absolute;
+  top: 8px;
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+     Responsive Styles
+     ========================================================================== */
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    left: -240px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .main-wrapper {
+    grid-column: 1;
+    padding-top: 70px; /* Space for mobile header */
+  }
+
+  .keyboard-container {
+    left: 0;
+  }
+
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--color-bg-module);
+    padding: 0 20px;
+    z-index: 900;
+    border-bottom: 1px solid var(--color-border-dark);
+  }
+}
+
+/* Hide mobile header by default */
+.mobile-header {
+  display: none;
+}
+
+.inset::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--color-bg-inset);
+  border-radius: 1px;
+  box-shadow: var(--shadow-out-md);
+  z-index: -1;
+}
+
+.screw {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border: 0.5px solid var(--color-border-beige);
+  border-radius: 50%;
+  box-shadow: inset 0.5px 0.5px 0.5px 0.5px var(--color-white),
+    0 0 0.5px 0.5px var(--color-shadow-dark-50),
+    inset -0.5px -0.5px 1px 1px var(--color-shadow-dark-50);
+}
+
+.screw::before {
+  content: "";
+  position: absolute;
+  top: 1.5px;
+  left: 3px;
+  width: 1px; /* Line thickness */
+  height: 4px; /* Line length */
+  background-color: var(--color-border-beige); /* Line color */
+  rotate: 45deg;
+}
+
+.top-left {
+  top: 8px;
+  left: 8px;
+}
+
+.top-right {
+  top: 8px;
+  right: 8px;
+}
+
+.bottom-left {
+  bottom: 8px;
+  left: 8px;
+}
+
+.bottom-right {
+  bottom: 8px;
+  right: 8px;
+}

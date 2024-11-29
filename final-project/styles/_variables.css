@@ -1,0 +1,233 @@
+:root {
+  --color-primary: #eee;
+  --color-secondary: #f05a22;
+  --color-tertiary: #ff395d;
+  --color-accent-red: #ff99a9;
+  --color-accent-green: #00ed95;
+  --color-accent-blue: #4c9dfd;
+  --color-accent-purple: #a463ff;
+  --color-accent-orange: #82281a;
+
+  /* Background Colors */
+  --color-bg-main: #eee;
+  --color-bg-module: #eee;
+  --color-bg-control: #eee;
+  --color-bg-tooltip: #202020;
+  --color-bg-inset: #4d4d4d;
+  --color-bg-slider: #bababa;
+  --color-bg-thumb: #f4f4f4;
+  --color-bg-light: #fff;
+  --color-bg-pressed: #e3e1de;
+
+  /* Text Colors */
+  --color-text-primary: #000;
+  --color-text-secondary: #2e2e2e;
+  --color-text-muted: #e8e2df95;
+  --color-text-light: #e8e2df;
+
+  /* Border Colors */
+  --color-border-lighter: #c5c5c5;
+  --color-border-beige: #a3a3a3;
+  --color-border-light: #333333;
+  --color-border-dark: #000000;
+
+  /* Shadow Colors */
+  --color-shadow-light: #f6f3f2;
+  --color-shadow-light-30: rgba(246, 243, 242, 0.3);
+  --color-shadow-light-50: rgba(246, 243, 242, 0.5);
+  --color-shadow-dark: #b2a8a5;
+  --color-shadow-dark-50: rgba(178, 168, 165, 0.5);
+
+  /* State Colors */
+  --color-hover: #c1c1c1;
+  --color-active: var(--color-secondary);
+
+  /* Pure Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Typography */
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 24px;
+
+  --shadow-out-sm: inset 0 1.5px 1px var(--color-white),
+    inset 0 -1.5px 0.5px var(--color-shadow-dark-50);
+
+  --shadow-out-md: -2px -2px 10px var(--color-shadow-dark-50),
+    5px 5px 5px var(--color-shadow-light),
+    inset 2px 2px 10px var(--color-shadow-light-30),
+    inset -2px -2px 10px var(--color-black);
+
+  --shadow-out-lg: 1px 1px 3px var(--color-shadow-light-30),
+    5px 5px 10px var(--color-shadow-dark),
+    inset 1.5px 1.5px 0px var(--color-white),
+    inset -1px -1px 0px var(--color-shadow-dark-50);
+
+  --shadow-in-sm: inset -1px -1px 10px 1px var(--color-white),
+    inset -1px -1px 0 var(--color-white),
+    1px 1px 2px var(--color-shadow-light-30),
+    inset 2px 3px 2px var(--color-shadow-dark);
+
+  --shadow-in-md: inset -1px -1px 10px 1px var(--color-white),
+    inset -1px -1px 0 var(--color-white),
+    1px 1px 3px var(--color-shadow-light-30),
+    inset 2px 3px 10px var(--color-shadow-dark);
+
+  --shadow-in-lg: -2px 4px 5px 3px var(--color-white),
+    2px -4px 5px 3px var(--color-shadow-dark-50),
+    inset 0 1px 5px var(--color-shadow-dark);
+
+  --shadow-button: 1px 1px 3px var(--color-shadow-light-30),
+    1px 1px 6px var(--color-shadow-dark),
+    inset 1.5px 1.5px 1px var(--color-white),
+    inset -1px -1px 1px var(--color-shadow-dark-50);
+
+  /* Button base colors */
+  --btn-orange-bg: #f05a22;
+  --btn-orange-active: #ee5529;
+  --btn-orange-light: #ffb147;
+  --btn-orange-dark: #d72d12;
+
+  /* Dark gray variant */
+  --btn-dark-bg: #353535;
+  --btn-dark-active: #313030;
+  --btn-dark-light: #a7a7a7;
+  --btn-dark-dark: #1c1c1c;
+
+  /* White variant */
+  --btn-white-bg: #cfcbca;
+  --btn-white-active: #b9b5b3;
+  --btn-white-light: #fafafa;
+  --btn-white-dark: #646464;
+
+  /* Light gray variant */
+  --btn-light-bg: #bcbcbc;
+  --btn-light-active: #b1adad;
+  --btn-light-light: #f7f7f7;
+  --btn-light-dark: #646464;
+}
+
+/* Button Styles */
+.button-wrapper {
+  width: 1fr;
+  display: flex;
+  border-radius: 2px;
+  background-color: #010101;
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
+  width: 100%;
+  position: relative;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: -1px;
+  border-radius: 8px;
+  padding: 10px 12px 8px;
+  width: 100%;
+  background-color: var(--btn-orange-bg);
+  box-shadow: inset 1px 1px 1px var(--btn-orange-light),
+    inset -1px -1px 1px var(--btn-orange-dark), 2px 2px 4px #000;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  transition: transform 0.2s cubic-bezier(0.25, 0.5, 0.5, 1),
+    background-color 0.2s cubic-bezier(0.25, 0.5, 0.5, 1),
+    box-shadow 0.2s cubic-bezier(0.25, 0.5, 0.5, 1);
+}
+
+.btn:active {
+  transform: scale(0.98);
+  background-color: var(--btn-orange-active);
+  box-shadow: inset 0 0 4px #000, inset 1px 1px 1px transparent,
+    inset -1px -1px 1px transparent, 2px 2px 4px transparent;
+}
+
+.btn.dark {
+  background-color: var(--btn-dark-bg);
+  box-shadow: inset 1px 1px 1px var(--btn-dark-light),
+    inset -1px -1px 1px var(--btn-dark-dark), 2px 2px 4px #000;
+}
+
+.btn.white {
+  background-color: var(--btn-white-bg);
+  box-shadow: inset 1px 1px 1px var(--btn-white-light),
+    inset -1px -1px 1px var(--btn-white-dark), 2px 2px 4px #000;
+  color: #010101;
+}
+
+.btn.white:active {
+  background-color: var(--btn-white-active);
+}
+
+.btn.light {
+  background-color: var(--btn-light-bg);
+  box-shadow: inset 1px 1px 1px var(--btn-light-light),
+    inset -1px -1px 1px var(--btn-light-dark), 2px 2px 4px #000;
+  border: 1px outset #000;
+  color: var(--color-text-primary);
+}
+
+.btn.light:active {
+  background-color: var(--btn-light-active);
+}
+
+.btn.light.active {
+  background-color: var(--color-primary);
+}
+
+.btn.dark:active {
+  transform: scale(0.97);
+  background-color: var(--btn-dark-active);
+}
+
+.btn.active {
+  transform: scale(0.97);
+  background-color: var(--btn-dark-active);
+  box-shadow: inset 0 0 4px #000, inset 1px 1px 1px transparent,
+    inset -1px -1px 1px transparent, 2px 2px 4px transparent;
+}
+
+.indicator-light {
+  width: 10px;
+  height: 100%;
+  border-radius: 2px;
+  box-shadow: none;
+  border: 2px solid rgb(72, 72, 72);
+  z-index: 2;
+  background-image: radial-gradient(
+      circle at top left,
+      transparent 50%,
+      #000 51%
+    ),
+    radial-gradient(ellipse, #4d4d4d, #000000);
+}
+
+.button-wrapper:has(.btn.active) .indicator-light {
+  width: 10px;
+  height: 100%;
+  border-radius: 2px;
+
+  box-shadow: inset 0 0 5px var(--color-secondary),
+    0 0 4px 1px var(--color-secondary), 5px 0 10px #ee552970;
+  border: 1px outset #a12b19;
+  z-index: 2;
+  background-image: radial-gradient(
+      circle at top left,
+      #ffffff80 60%,
+      transparent 61%
+    ),
+    radial-gradient(ellipse, white 0%, var(--btn-orange-light) 50%);
+}

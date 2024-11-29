@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css"
+    />
+
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body class="app-layout">
+    <div class="nav-button-wrapper">
+      <a href="landing.html" class="nav-button"
+        ><i class="ph-light ph-house"></i><span>home</span></a
+      >
+      <a href="/index.html" class="nav-button active"
+        ><i class="ph-light ph-cassette-tape"></i><span>Studio</span></a
+      >
+      <a href="tutorial.html" class="nav-button"
+        ><i class="ph-light ph-book-open-user"></i><span>Tutorials</span></a
+      >
+      <a href="about.html" class="nav-button"
+        ><i class="ph-light ph-info"></i><span>About</span></a
+      >
+    </div>
+
+    <div class="main-content-wrapper">
+      <div class="container">
+        <div class="tab-content-wrapper">
+          <span class="screw top-left"></span>
+          <span class="screw top-right"></span>
+
+          <div class="about-content">
+            <section class="about-intro">
+              <div class="viz-container" style="height: 120px">
+                <span class="viz-label">TONE</span>
+                <canvas id="aboutViz"></canvas>
+              </div>
+
+              <h2>About TONE</h2>
+              <p>
+                TONE started as my exploration into web audio and synthesis. I
+                wanted to create something that makes sound design accessible
+                and fun to experiment with, even if you're just getting started
+                with music production.
+              </p>
+            </section>
+
+            <section class="about-features">
+              <h3>What's Included</h3>
+              <div class="feature-grid">
+                <div class="feature">
+                  <h4>Sound Engine</h4>
+                  <p>
+                    Two oscillators with classic waveforms, a filter section,
+                    and some effects to shape your sound.
+                  </p>
+                </div>
+
+                <div class="feature">
+                  <h4>Step Sequencer</h4>
+                  <p>
+                    16 steps for both melodic and drum patterns. Record notes
+                    live or input them step by step.
+                  </p>
+                </div>
+
+                <div class="feature">
+                  <h4>Visual Feedback</h4>
+                  <p>
+                    Real-time waveform display helps you understand how
+                    different settings affect your sound.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="about-tech">
+              <h3>Built With</h3>
+              <ul>
+                <li>Web Audio API</li>
+                <li>Tone.js</li>
+                <li>Canvas</li>
+                <li>Vanilla JS</li>
+              </ul>
+            </section>
+
+            <section class="development">
+              <h3>Development</h3>
+              <p>
+                This was my final project for my web audio course. I learned a
+                lot about audio processing, UI design, and real-time
+                visualization. Feel free to check out the code or send me
+                feedback.
+              </p>
+            </section>
+          </div>
+
+          <span class="screw bottom-left"></span>
+          <span class="screw bottom-right"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
