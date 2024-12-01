@@ -309,13 +309,14 @@ export class SequencerModule {
     const bpmLabelContainer = document.createElement("div");
     bpmLabelContainer.className = "bpm-label-container";
     bpmLabelContainer.innerHTML = `
-    <label id="bpmLabel" class="bpm-label">BPM</label>
+    <label id="bpmLabel" class="bpm-label" for="bpmButtons">BPM</label>
     <span id="bpmValue" class="bpm-value">120</span>
     `;
 
     // Create BPM Button Wrapper
     const bpmButtonWrapper = document.createElement("div");
     bpmButtonWrapper.className = "bpm-btn-wrapper";
+    bpmButtonWrapper.id = "bpmButtons";
 
     // Create BPM Plus Button
     const bpmPlus = document.createElement("button");
