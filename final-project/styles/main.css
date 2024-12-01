@@ -2,12 +2,12 @@ body {
   background-color: red !important; /* Clearly visible change */
 }
 /* Import all stylesheets */
-@import "../_variables.css";
-@import "../_base.css";
-@import "../_controls.css";
-@import "../_keyboard.css";
-@import "../_tabs.css";
-@import "../_sequencer.css";
-@import "../_landing.css";
-@import "../_tutorial.css";
-@import "../_about.css";
+@import "../final-project/styles/_variables.css";
+@import "../final-project/styles/__base.css";
+@import "../final-project/styles/__controls.css";
+@import "../final-project/styles/__keyboard.css";
+@import "../final-project/styles/__tabs.css";
+@import "../final-project/styles/__sequencer.css";
+@import "../final-project/styles/__landing.css";
+@import "../final-project/styles/__tutorial.css";
+@import "../final-project/styles/__about.css";
