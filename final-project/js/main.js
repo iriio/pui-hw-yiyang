@@ -250,23 +250,6 @@ class WebSynth {
     if (keyElement) keyElement.classList.add("active");
   }
 
-  // Modify the noteOff method
-  noteOff(note) {
-    if (!this.audioEngine.synth1) return;
-
-    // Don't need release for drums as they have their own envelope
-    if (!["kick", "snare", "hihat", "clap"].includes(note)) {
-      this.audioEngine.synth1.triggerRelease(note);
-      this.audioEngine.synth2.triggerRelease(note);
-      const subNote = Tone.Frequency(note).transpose(-12).toNote();
-      this.audioEngine.subSynth.triggerRelease(subNote);
-    }
-
-    // Update keyboard UI
-    const keyElement = document.querySelector(`[data-note="${note}"]`);
-    if (keyElement) keyElement.classList.remove("active");
-  }
-
   noteOff(note) {
     if (!this.audioEngine.synth1) return;
 

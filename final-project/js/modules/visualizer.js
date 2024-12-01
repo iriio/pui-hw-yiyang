@@ -15,7 +15,6 @@ export class Visualizer {
     this.startAnimation();
   }
 
-  // Keep your original setupCanvas, drawWaveform methods...
   setupCanvas() {
     const resizeCanvas = () => {
       const container = this.canvas.parentElement;
@@ -40,7 +39,7 @@ export class Visualizer {
     this.ctx.stroke();
 
     // Draw waveform
-    this.ctx.beginPath();
+
     const sliceWidth = this.canvas.width / data.length;
     let x = 0;
 
