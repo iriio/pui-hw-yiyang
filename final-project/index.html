@@ -127,8 +127,8 @@
                     <div class="control-container">
                       <div class="osc">
                         <div class="osc-group">
-                          <label>OSC 1</label>
-                          <div class="osc-buttons" id="osc1Buttons">
+                          <label id="osc1Label">OSC 1</label>
+                          <div class="osc-buttons" id="osc1Buttons" aria-labelledby="osc1Label">
                             <div class="button-wrapper">
                               <div class="indicator-light"></div>
                               <button class="osc-button active btn dark" data-type="sine">
@@ -160,8 +160,8 @@
                           </div>
                         </div>
                         <div class="osc-group">
-                          <label>OSC 2</label>
-                          <div class="osc-buttons" id="osc2Buttons">
+                          <label id="osc2Label">OSC 2</label>
+                          <div class="osc-buttons" id="osc2Buttons" aria-labelledby="osc2Label">
                             <div class="button-wrapper">
                               <div class="indicator-light"></div>
                               <button class="osc-button active btn dark" data-type="sine">
@@ -190,8 +190,8 @@
                         </div>
                       </div>
                       <div class="control">
-                        <label>Mix</label>
-                        <div class="input-container ">
+                        <label id="mixLabel">Mix</label>
+                        <div class="input-container">
                           <input
                             type="range"
                             id="oscMix"
@@ -199,12 +199,13 @@
                             max="1"
                             step="0.01"
                             value="0.5"
+                            aria-labelledby="mixLabel"
                           />
                           
                         </div>
                       </div>
                       <div class="control">
-                        <label>Sub Oscillator</label>
+                        <label id="subOscLabel">Sub Oscillator</label>
                         <div class="input-container ">
                           <input
                             type="range"
@@ -213,11 +214,12 @@
                             max="1"
                             step="0.01"
                             value="0"
+                            aria-labelledby="subOscLabel"
                           />
                         </div>
                       </div>
                       <div class="control">
-                        <label>Detune</label>
+                        <label id="detuneLabel">Detune</label>
                         <div class="input-container ">
                           <input
                             type="range"
@@ -226,6 +228,7 @@
                             max="1"
                             step="0.01"
                             value="0"
+                            aria-labelledby="detuneLabel"
                           />
                         </div>
                       </div>
@@ -239,7 +242,7 @@
                     </div>
                     <div class="control-container">
                       <div class="control">
-                        <label>Cutoff</label>
+                        <label id="cutoffLabel">Cutoff</label>
                         <div class="input-container ">
                           <input
                             type="range"
@@ -248,11 +251,12 @@
                             max="10"
                             step="0.1"
                             value="5"
+                            aria-labelledby="cutoffLabel"
                           />
                         </div>
                       </div>
                       <div class="control">
-                        <label>Resonance</label>
+                        <label id="resonanceLabel">Resonance</label>
                         <div class="input-container ">
                           <input
                             type="range"
@@ -261,12 +265,13 @@
                             max="20"
                             step="0.1"
                             value="1"
+                            aria-labelledby="resonanceLabel"
                           />
                         </div>
                       </div>
                       <div class="control">
-                        <label>Filter Type</label>
-                        <div id="filterTypeButtons" class="osc-buttons">
+                        <label id="filterTypeLabel">Filter Type</label>
+                        <div id="filterTypeButtons" class="osc-buttons"  aria-labelledby="filterTypeLabel">
                           <div class="button-wrapper">
                             <div class="indicator-light"></div>
                             <button class="osc-button active btn dark" data-type="lowpass">
@@ -294,7 +299,7 @@
                         </div>
                       </div>
                       <div class="control">
-                        <label>Drive Amount</label>
+                        <label id="driveAmountLabel">Drive Amount</label>
                         <div class="input-container ">
                           <input
                             type="range"
@@ -303,6 +308,7 @@
                             max="1"
                             step="0.01"
                             value="0"
+                            aria-labelledby="driveAmountLabel"
                           />
                         </div>
                       </div>
@@ -316,7 +322,7 @@
                     </div>
                     <div class="control-container">
                       <div class="control">
-                        <label>Attack</label>
+                        <label id="attackLabel">Attack</label>
                         <div class="input-container ">
                           <input
                             type="range"
@@ -325,11 +331,12 @@
                             max="2"
                             step="0.01"
                             value="0.01"
+                            aria-labelledby="attackLabel"
                           />
                         </div>
                       </div>
                       <div class="control">
-                        <label>Decay</label>
+                        <label id="decayLabel">Decay</label>
                         <div class="input-container ">
                           <input
                             type="range"
@@ -338,11 +345,12 @@
                             max="2"
                             step="0.01"
                             value="0.1"
+                            aria-labelledby="decayLabel"
                           />
                         </div>
                       </div>
                       <div class="control">
-                        <label>Sustain</label>
+                        <label id="sustainLabel">Sustain</label>
                         <div class="input-container ">
                           <input
                             type="range"
@@ -351,11 +359,12 @@
                             max="1"
                             step="0.01"
                             value="0.5"
+                            aria-labelledby="sustainLabel"
                           />
                         </div>
                       </div>
                       <div class="control">
-                        <label>Release</label>
+                        <label id="releaseLabel">Release</label>
                         <div class="input-container ">
                           <input
                             type="range"
@@ -364,6 +373,7 @@
                             max="4"
                             step="0.01"
                             value="0.1"
+                            aria-labelledby="releaseLabel"
                           />
                         </div>
                       </div>
