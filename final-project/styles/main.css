@@ -1,3 +1,6 @@
+body {
+  background-color: red !important; /* Clearly visible change */
+}
 /* Import all stylesheets */
 @import "./_variables.css";
 @import "./_base.css";
@@ -8,7 +11,3 @@
 @import "./_landing.css";
 @import "./_tutorial.css";
 @import "./_about.css";
-
-body {
-  background-color: red !important; /* Clearly visible change */
-}
