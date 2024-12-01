@@ -309,20 +309,24 @@ export class SequencerModule {
     const bpmLabelContainer = document.createElement("div");
     bpmLabelContainer.className = "bpm-label-container";
     bpmLabelContainer.innerHTML = `
-      <label>BPM</label>
-      <span id="bpmValue" class="bpm-value">120</span>
+    <label id="bpmLabel" class="bpm-label">BPM</label>
+    <span id="bpmValue" class="bpm-value">120</span>
     `;
 
+    // Create BPM Button Wrapper
     const bpmButtonWrapper = document.createElement("div");
     bpmButtonWrapper.className = "bpm-btn-wrapper";
 
+    // Create BPM Plus Button
     const bpmPlus = document.createElement("button");
+    bpmPlus.setAttribute("aria-labelledby", "bpmLabel");
     bpmPlus.className = "btn dark bpm-btn bpm-plus";
-    bpmPlus.innerHTML = `<i class="ph ph-plus"></i>`;
+    bpmPlus.innerHTML = `<i class="ph ph-plus"></i><span class="sr-only">BPM HIGHER</span>`;
 
     const bpmMinus = document.createElement("button");
+    bpmPlus.setAttribute("aria-labelledby", "bpmLabel");
     bpmMinus.className = "btn dark bpm-btn bpm-minus";
-    bpmMinus.innerHTML = `<i class="ph ph-minus"></i>`;
+    bpmMinus.innerHTML = `<i class="ph ph-minus"></i><span class="sr-only">BPM LOWER</span>`;
 
     let currentBpm = 120;
     const updateBpm = (delta) => {
@@ -342,7 +346,7 @@ export class SequencerModule {
     // Create preset button toggle
     const presetButton = document.createElement("button");
     presetButton.className = "preset-button btn dark";
-    presetButton.innerHTML = `<i class="ph ph-pulse"></i>`;
+    presetButton.innerHTML = `<i class="ph ph-pulse"></i><span class="sr-only">PRESETS</span>`;
     presetButton.addEventListener("click", () => {
       this.cyclePreset();
     });
@@ -354,7 +358,7 @@ export class SequencerModule {
 
     const resetButton = document.createElement("button");
     resetButton.className = "reset-button btn dark";
-    resetButton.innerHTML = `<i class="ph ph-trash"></i>`;
+    resetButton.innerHTML = `<i class="ph ph-trash"></i><span class="sr-only">RESET</span>`;
     resetButton.addEventListener("click", () => {
       if (this.webSynth.tabManager.currentTab === "sequence") {
         this.clearSequence();
@@ -368,7 +372,7 @@ export class SequencerModule {
 
     const reverseButton = document.createElement("button");
     reverseButton.className = "reverse-button btn dark";
-    reverseButton.innerHTML = `<i class="ph ph-swap"></i>`;
+    reverseButton.innerHTML = `<i class="ph ph-swap"></i><span class="sr-only">REVERSE</span>`;
     reverseButton.addEventListener("click", () => {
       this.reverse = !this.reverse;
       reverseButton.classList.toggle("active");

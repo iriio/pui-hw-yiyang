@@ -78,31 +78,10 @@
 }
 
 /* Control Buttons */
-.reverse-label {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-}
-
-.preset-label {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-}
-
 .reset-button i,
 .reverse-button i,
 .preset-button i {
   font-size: 24px;
-}
-
-.reset-label {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
 }
 
 /* BPM Controls */

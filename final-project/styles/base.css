@@ -104,10 +104,6 @@ body {
   width: fit-content;
   height: fit-content;
   text-align: center;
-  background-color: var(--color-black);
-  color: transparent;
-  text-shadow: -0.5px -0.5px 1px #ffffff50;
-  background-clip: text;
 }
 
 .sidebar h2 {
@@ -361,4 +357,16 @@ body {
 .bottom-right {
   bottom: 8px;
   right: 8px;
+}
+
+.sr-only {
+  position: absolute; /* Removes it from the flow of the document */
+  width: 1px; /* Minimizes the element width */
+  height: 1px; /* Minimizes the element height */
+  padding: 0; /* Removes any padding */
+  margin: -1px; /* Prevents the element from affecting layout */
+  overflow: hidden; /* Ensures no visible overflow */
+  clip: rect(0, 0, 0, 0); /* Clips the element to make it invisible */
+  white-space: nowrap; /* Prevents text wrapping */
+  border: 0; /* Removes any border styling */
 }
