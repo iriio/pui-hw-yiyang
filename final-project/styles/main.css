@@ -1,10 +1,10 @@
 /* Import all stylesheets */
-@import ".final-project/styles/_variables.css";
-@import ".final-project/styles/_base.css";
-@import ".final-project/styles/_controls.css";
-@import ".final-project/styles/_keyboard.css";
-@import ".final-project/styles/_tabs.css";
-@import ".final-project/styles/_sequencer.css";
-@import ".final-project/styles/_landing.css";
-@import ".final-project/styles/_tutorial.css";
-@import ".final-project/styles/_about.css";
+@import "/final-project/styles/_variables.css";
+@import "./final-project/styles/_base.css";
+@import "./final-project/styles/_controls.css";
+@import "./final-project/styles/_keyboard.css";
+@import "./final-project/styles/_tabs.css";
+@import "./final-project/styles/_sequencer.css";
+@import "./final-project/styles/_landing.css";
+@import "./final-project/styles/_tutorial.css";
+@import "./final-project/styles/_about.css";
