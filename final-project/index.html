@@ -120,69 +120,101 @@
                     </div>
                     <div class="control-container">
                       <div class="osc">
-                        <div class="osc-group">
-                          <label id="osc1Label" for="osc1Buttons">OSC 1</label>
+                        <!-- OSC 1 -->
+                        <fieldset class="osc-group">
+                          <legend id="osc1Label">OSC 1</legend>
                           <div class="osc-buttons" id="osc1Buttons" aria-labelledby="osc1Label">
                             <div class="button-wrapper">
-                              <div class="indicator-light"></div>
-                              <button class="osc-button active btn dark" data-type="sine">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button active btn dark"
+                                data-type="sine"
+                                aria-label="Sine wave active"
+                              >
                                 Sine
                               </button>
-                            
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light"></div>
-                              <button class="osc-button btn dark" data-type="square">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button btn dark"
+                                data-type="square"
+                                aria-label="Square wave"
+                              >
                                 Sqr
                               </button>
-                           
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light"></div>
-                              <button class="osc-button btn dark" data-type="sawtooth">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button btn dark"
+                                data-type="sawtooth"
+                                aria-label="Sawtooth wave"
+                              >
                                 Saw
                               </button>
-                            
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light"></div>
-                              <button class="osc-button btn dark" data-type="triangle">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button btn dark"
+                                data-type="triangle"
+                                aria-label="Triangle wave"
+                              >
                                 Tri
                               </button>
-                          
                             </div>
                           </div>
-                        </div>
-                        <div class="osc-group">
-                          <label id="osc2Label" for="osc2Buttons">OSC 2</label>
+                        </fieldset>
+                      
+                        <!-- OSC 2 -->
+                        <fieldset class="osc-group">
+                          <legend id="osc2Label">OSC 2</legend>
                           <div class="osc-buttons" id="osc2Buttons" aria-labelledby="osc2Label">
                             <div class="button-wrapper">
-                              <div class="indicator-light"></div>
-                              <button class="osc-button active btn dark" data-type="sine">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button active btn dark"
+                                data-type="sine"
+                                aria-label="Sine wave active"
+                              >
                                 Sine
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light"></div>
-                              <button class="osc-button btn dark" data-type="square">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button btn dark"
+                                data-type="square"
+                                aria-label="Square wave"
+                              >
                                 Sqr
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light"></div>
-                              <button class="osc-button btn dark" data-type="sawtooth">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button btn dark"
+                                data-type="sawtooth"
+                                aria-label="Sawtooth wave"
+                              >
                                 Saw
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light"></div>
-                              <button class="osc-button btn dark" data-type="triangle">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button btn dark"
+                                data-type="triangle"
+                                aria-label="Triangle wave"
+                              >
                                 Tri
                               </button>
                             </div>
                           </div>
-                        </div>
+                        </fieldset>
                       </div>
+                      
                       <div class="control">
                         <label id="mixLabel" for="oscMix">Mix</label>
                         <div class="input-container">
@@ -264,34 +296,53 @@
                         </div>
                       </div>
                       <div class="control">
-                        <label id="filterTypeLabel" for="filterTypeButtons">Filter Type</label>
-                        <div id="filterTypeButtons" class="osc-buttons"  aria-labelledby="filterTypeLabel">
-                          <div class="button-wrapper">
-                            <div class="indicator-light"></div>
-                            <button class="osc-button active btn dark" data-type="lowpass">
-                              Low
-                            </button>
+                        <fieldset class="osc-group">
+                          <legend id="filterTypeLabel">Filter Type</legend>
+                          <div id="filterTypeButtons" class="osc-buttons" role="group" aria-labelledby="filterTypeLabel">
+                            <div class="button-wrapper">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button active btn dark"
+                                data-type="lowpass"
+                                aria-label="Low-pass filter"
+                              >
+                                Low
+                              </button>
+                            </div>
+                            <div class="button-wrapper">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button btn dark"
+                                data-type="highpass"
+                                aria-label="High-pass filter"
+                              >
+                                High
+                              </button>
+                            </div>
+                            <div class="button-wrapper">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button btn dark"
+                                data-type="bandpass"
+                                aria-label="Band-pass filter"
+                              >
+                                Band
+                              </button>
+                            </div>
+                            <div class="button-wrapper">
+                              <div class="indicator-light" aria-hidden="true"></div>
+                              <button
+                                class="osc-button btn dark"
+                                data-type="notch"
+                                aria-label="Notch filter"
+                              >
+                                Notch
+                              </button>
+                            </div>
                           </div>
-                          <div class="button-wrapper">
-                            <div class="indicator-light"></div>
-                            <button class="osc-button btn dark" data-type="highpass">
-                              High
-                            </button>
-                          </div>
-                          <div class="button-wrapper">
-                            <div class="indicator-light"></div>
-                            <button class="osc-button btn dark" data-type="bandpass">
-                              Band
-                            </button>
-                          </div>
-                          <div class="button-wrapper">
-                            <div class="indicator-light"></div>
-                            <button class="osc-button btn dark" data-type="notch">
-                              Notch
-                            </button>
-                          </div>
-                        </div>
+                        </fieldset>
                       </div>
+                      
                       <div class="control">
                         <label id="driveAmountLabel" for="driveAmount">Drive Amount</label>
                         <div class="input-container ">
