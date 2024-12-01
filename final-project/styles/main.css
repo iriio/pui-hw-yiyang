@@ -8,3 +8,7 @@
 @import "./_landing.css";
 @import "./_tutorial.css";
 @import "./_about.css";
+
+body {
+  background-color: red !important; /* Clearly visible change */
+}
