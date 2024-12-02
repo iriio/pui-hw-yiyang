@@ -574,18 +574,6 @@ export class SequencerModule {
     });
   }
 
-  toggleReverse() {
-    this.reverse = !this.reverse;
-
-    // Update visuals immediately
-    const currentStepBeforeReverse = this.currentStep;
-    this.currentStep = this.reverse
-      ? 15 - currentStepBeforeReverse
-      : currentStepBeforeReverse;
-
-    this.updateUI();
-  }
-
   togglePlayback() {
     this.playing = !this.playing;
 

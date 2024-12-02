@@ -25,42 +25,6 @@ class WebSynth {
     }
   }
 
-  async initializeAudio() {
-    try {
-      // Start with a fresh Tone.js context
-      await Tone.start();
-      await Tone.context.resume();
-
-      console.log("Tone.js context started");
-
-      // Set initial volume
-      Tone.Destination.volume.value = -6;
-
-      // Initialize audio engine
-      await this.audioEngine.init();
-      console.log("Audio engine initialized");
-
-      // Initialize modules in correct order
-      this.oscillatorModule = new OscillatorModule(this.audioEngine);
-      this.keyboard = new KeyboardModule(this);
-
-      // Setup UI components
-      this.keyboard.setupKeyboard();
-      this.setupAllVisualizations();
-      this.bindControls();
-
-      // Initialize sequencer last
-      this.sequencer = new SequencerModule(this);
-      this.sequencer.updateUI();
-
-      console.log("All modules initialized");
-      return true;
-    } catch (error) {
-      console.error("Error in initializeAudio:", error);
-      throw error;
-    }
-  }
-
   async initUI() {
     // Initialize everything except audio
     this.setupSideNav();
@@ -72,7 +36,7 @@ class WebSynth {
     this.sequencer.updateUI();
     this.bindControls();
 
-    // Set up silent audio initialization on first music interaction
+    // Set up silent audio initialization on first music interaction to get away with browser autoblock
     const initAudioOnFirstMusic = async (e) => {
       if (
         e.type === "keydown" &&
@@ -88,7 +52,7 @@ class WebSynth {
           this.setupAllVisualizations();
           this.initialized = true;
 
-          // Remove listeners after success
+          // Remove listeners after init success
           window.removeEventListener("keydown", initAudioOnFirstMusic);
           document
             .querySelector("#keyboard")
@@ -102,7 +66,7 @@ class WebSynth {
       }
     };
 
-    // Add listeners for first musical interaction
+    // Add listeners for first music interaction
     window.addEventListener("keydown", initAudioOnFirstMusic);
     document
       .querySelector("#keyboard")
@@ -110,71 +74,6 @@ class WebSynth {
     document
       .querySelector(".sequence-row")
       ?.addEventListener("mousedown", initAudioOnFirstMusic);
-  }
-
-  setupInitialization() {
-    // Create a function to handle first user interaction
-    const initOnFirstInteraction = async () => {
-      if (!this.initialized) {
-        await this.initializeAudio();
-        this.initialized = true;
-        // Remove the event listeners after initialization
-        document.removeEventListener("mousedown", initOnFirstInteraction);
-        document.removeEventListener("touchstart", initOnFirstInteraction);
-        document.removeEventListener("keydown", initOnFirstInteraction);
-      }
-    };
-
-    // Add event listeners for any user interaction
-    document.addEventListener("mousedown", initOnFirstInteraction);
-    document.addEventListener("touchstart", initOnFirstInteraction);
-    document.addEventListener("keydown", initOnFirstInteraction);
-  }
-
-  async initializeAudio() {
-    try {
-      // Start with a fresh Tone.js context
-      await Tone.start();
-      await Tone.context.resume();
-
-      console.log("Tone.js context started");
-
-      // Set initial volume
-      Tone.Destination.volume.value = -6;
-
-      // Initialize audio engine
-      await this.audioEngine.init();
-      console.log("Audio engine initialized");
-
-      // Initialize modules
-      this.oscillatorModule = new OscillatorModule(this.audioEngine);
-      this.keyboard = new KeyboardModule(this);
-
-      // Setup UI
-      this.keyboard.setupKeyboard();
-      this.setupAllVisualizations();
-      this.bindControls();
-
-      // Initialize sequencer last
-      this.sequencer = new SequencerModule(this);
-      this.sequencer.updateUI();
-
-      console.log("All modules initialized");
-      return true;
-    } catch (error) {
-      console.error("Error in initializeAudio:", error);
-      throw error;
-    }
-  }
-
-  setupStartButton() {
-    const startButton = document.getElementById("enterPlayground");
-    if (!startButton) return;
-
-    startButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.location.href = "index.html";
-    });
   }
 
   setupSideNav() {
@@ -404,10 +303,6 @@ class WebSynth {
         );
       }
     });
-  }
-
-  getNoteLabel(note) {
-    return note; // tone.js notes are already in readable format yay
   }
 }
 

@@ -222,10 +222,4 @@ export class KeyboardModule {
   isSharpNote(note) {
     return note.includes("#") || note.includes("b");
   }
-
-  cleanup() {
-    // Remove event listeners when cleaning up
-    document.removeEventListener("keydown", this.handleKeyDown);
-    document.removeEventListener("keyup", this.handleKeyUp);
-  }
 }
