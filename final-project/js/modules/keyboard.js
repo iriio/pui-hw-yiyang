@@ -1,9 +1,15 @@
+/**
+ * KeyboardModule Class
+ * Handles keyboard input and visualization
+ */
 export class KeyboardModule {
+  /**
+   * Creates a new KeyboardModule instance
+   * @param {WebSynth} webSynth - its parent WebSynth instance
+   */
   constructor(webSynth) {
     this.webSynth = webSynth;
     this.activeNotes = new Map();
-    this.stickyKeys = new Set();
-    this.lastClickTime = new Map();
 
     this.keyboardMap = {
       a: { note: "C4", label: "A" },
@@ -45,6 +51,10 @@ export class KeyboardModule {
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
+  /**
+   * sets up the keyboard ui
+   * makes DOM elements for keyboard and drum pads
+   */
   setupKeyboard() {
     const keyboard = document.getElementById("keyboard");
     if (!keyboard) return;
@@ -100,6 +110,12 @@ export class KeyboardModule {
     document.addEventListener("keyup", this.handleKeyUp);
   }
 
+  /**
+   * creates a key element for the virtual keyboard
+   * @param {string} key - computer keyboard key
+   * @param {Object} info - info on the note
+   * @returns {HTMLElement} the created music key element
+   */
   createKeyElement(key, info) {
     const keyElement = document.createElement("div");
     const keyCenter = document.createElement("div");
@@ -137,6 +153,12 @@ export class KeyboardModule {
     return keyElement;
   }
 
+  /**
+   * creates a drum pad element
+   * @param {string} key - computer keyboard key
+   * @param {Object} info - info on the drum
+   * @returns {HTMLElement} the created drum pad element
+   */
   createDrumPad(key, info) {
     const padElement = document.createElement("div");
     padElement.className = "drum-pad btn dark";
@@ -160,6 +182,10 @@ export class KeyboardModule {
     return padElement;
   }
 
+  /**
+   * handles keyboard key down events
+   * @param {KeyboardEvent} e - The keyboard event
+   */
   handleKeyDown(e) {
     // Ignore if command/meta key is pressed
     if (e.metaKey || e.ctrlKey) return;
@@ -178,45 +204,39 @@ export class KeyboardModule {
     }
   }
 
+  /**
+   * handles keyboard key up events
+   * @param {KeyboardEvent} e - The keyboard event
+   */
   handleKeyUp(e) {
     const keyInfo = this.keyboardMap[e.key.toLowerCase()];
-    if (keyInfo && !this.stickyKeys.has(keyInfo.note)) {
+    if (keyInfo) {
       this.webSynth.noteOff(keyInfo.note);
     }
   }
 
+  /**
+   * handles mouse down events
+   * @param {KeyboardEvent} e - The keyboard event
+   */
   handleMouseDown(e, note) {
-    const currentTime = Date.now();
-    const lastTime = this.lastClickTime.get(note) || 0;
-
-    // Double-click detection for sticky keys (300ms threshold)
-    if (currentTime - lastTime < 300) {
-      if (this.stickyKeys.has(note)) {
-        this.stickyKeys.delete(note);
-        this.webSynth.noteOff(note);
-      } else {
-        this.stickyKeys.add(note);
-        this.webSynth.noteOn(note);
-      }
-    } else {
-      if (!this.stickyKeys.has(note)) {
-        this.webSynth.noteOn(note);
-      }
-    }
-
-    this.lastClickTime.set(note, currentTime);
+    this.webSynth.noteOn(note);
   }
 
+  /**
+   * handles mouse up events
+   * @param {KeyboardEvent} e - The keyboard event
+   */
   handleMouseUp(note) {
-    if (!this.stickyKeys.has(note)) {
-      this.webSynth.noteOff(note);
-    }
+    this.webSynth.noteOff(note);
   }
 
+  /**
+   * handles mouse leave events
+   * @param {KeyboardEvent} e - The keyboard event
+   */
   handleMouseLeave(note) {
-    if (!this.stickyKeys.has(note)) {
-      this.webSynth.noteOff(note);
-    }
+    this.webSynth.noteOff(note);
   }
 
   isSharpNote(note) {

@@ -1,4 +1,12 @@
+/**
+ * SequencerModule Class
+ * Handles step sequencing and pattern playback
+ */
 export class SequencerModule {
+  /**
+   * creates a new SequencerModule instance
+   * @param {WebSynth} webSynth - its parent WebSynth instance
+   */
   constructor(webSynth) {
     this.webSynth = webSynth;
     this.playing = false;
@@ -6,7 +14,6 @@ export class SequencerModule {
     this.bpm = 120;
     this.reverse = false;
     this.maxNotesPerStep = 3;
-    this.stickyNotes = new Set();
 
     // Separate steps for melodic notes and drums
     this.melodicSteps = Array(16)
@@ -160,6 +167,10 @@ export class SequencerModule {
     this.currentPresetIndex = -1;
   }
 
+  /**
+   * creates the sequencer ui
+   * sets up step grid for melody and drum patterns
+   */
   createUI() {
     // Create drum row
     const drumRow = document.querySelector(".sequence-row.drums");
@@ -205,6 +216,11 @@ export class SequencerModule {
     }
   }
 
+  /**
+   * records a note to the current step
+   * @param {string} note - the note to record
+   * @param {number} stepIndex - the step to record to
+   */
   recordNote(note, stepIndex = this.currentStep) {
     if (stepIndex >= 0 && stepIndex < 16) {
       const isDrum = ["kick", "snare", "hihat", "clap"].includes(note);
@@ -213,7 +229,7 @@ export class SequencerModule {
         : this.melodicSteps[stepIndex].notes;
 
       if (currentStepNotes.length < this.maxNotesPerStep) {
-        // Add note to current step if there's room
+        // Add note to current step if there's room (limit to 3)
         currentStepNotes.push(note);
         this.updateUI();
 
@@ -247,12 +263,16 @@ export class SequencerModule {
     }
   }
 
+  /**
+   * updates the sequencer user interface
+   * updates step highlighting and note display
+   */
   updateUI() {
-    // Update drum step highlighting
+    // update drum step highlighting
     document.querySelectorAll(".drum-step").forEach((step, i) => {
       step.classList.toggle("current", i === this.currentStep);
 
-      // Update drum notes
+      // update drum notes
       const stepData = this.drumSteps[i];
       if (stepData && stepData.notes) {
         step.innerHTML = stepData.notes
@@ -261,11 +281,11 @@ export class SequencerModule {
       }
     });
 
-    // Update melodic step highlighting
+    // update melodic step highlighting
     document.querySelectorAll(".melodic-step").forEach((step, i) => {
       step.classList.toggle("current", i === this.currentStep);
 
-      // Update melodic notes
+      // update melodic notes
       const stepData = this.melodicSteps[i];
       if (stepData && stepData.notes) {
         step.innerHTML = stepData.notes
@@ -274,7 +294,7 @@ export class SequencerModule {
       }
     });
 
-    // Update play button
+    // update play button
     const playButton = document.querySelector(".sequencer-play");
     if (playButton) {
       const icon = playButton.querySelector("i");
@@ -289,6 +309,10 @@ export class SequencerModule {
     }
   }
 
+  /**
+   * creates transport control ui
+   * including play, BPM, preset and reverse
+   */
   createTransportControls() {
     const transportControls = document.querySelector(".transport-controls");
     if (!transportControls) return;
@@ -325,7 +349,7 @@ export class SequencerModule {
     bpmPlus.innerHTML = `<i class="ph ph-plus"></i><span class="sr-only">BPM HIGHER</span>`;
 
     const bpmMinus = document.createElement("button");
-    bpmPlus.setAttribute("aria-labelledby", "bpmLabel");
+    bpmMinus.setAttribute("aria-labelledby", "bpmLabel");
     bpmMinus.className = "btn dark bpm-btn bpm-minus";
     bpmMinus.innerHTML = `<i class="ph ph-minus"></i><span class="sr-only">BPM LOWER</span>`;
 
@@ -389,6 +413,10 @@ export class SequencerModule {
     transportControls.appendChild(resetButtonWrapper);
   }
 
+  /**
+   * handles scrolling the step grid
+   * @param {number} stepIndex - the step to scroll to
+   */
   scrollToStep(stepIndex) {
     const container = document.querySelector(".timeline-content");
     const stepElement = document.querySelector(`[data-step="${stepIndex}"]`);
@@ -424,6 +452,10 @@ export class SequencerModule {
     }
   }
 
+  /**
+   * cycles through drum pattern presets
+   * loads the next preset in sequence
+   */
   cyclePreset() {
     this.currentPresetIndex =
       (this.currentPresetIndex + 1) % this.presets.length;
@@ -454,10 +486,6 @@ export class SequencerModule {
       const keyInfo =
         this.webSynth.keyboard?.keyboardMap[event.key.toLowerCase()];
       if (keyInfo?.note) {
-        if (event.shiftKey) {
-          // Add to sticky notes
-          this.stickyNotes.add(keyInfo.note);
-        }
         this.recordNote(keyInfo.note);
       }
     }
@@ -466,8 +494,7 @@ export class SequencerModule {
   handleKeyUp(event) {
     const keyInfo =
       this.webSynth.keyboard?.keyboardMap[event.key.toLowerCase()];
-    if (keyInfo?.note && !this.stickyNotes.has(keyInfo.note)) {
-      // Only stop the note if it's not sticky
+    if (keyInfo?.note) {
       this.webSynth.noteOff(keyInfo.note);
     }
   }
@@ -478,10 +505,6 @@ export class SequencerModule {
       if (key) {
         const note = key.dataset.note;
         if (note) {
-          if (event.shiftKey) {
-            // Add to sticky notes
-            this.stickyNotes.add(note);
-          }
           this.recordNote(note);
         }
       }
@@ -492,8 +515,7 @@ export class SequencerModule {
     const key = event.target.closest("[data-note]");
     if (key) {
       const note = key.dataset.note;
-      if (note && !this.stickyNotes.has(note)) {
-        // Only stop the note if it's not sticky
+      if (note) {
         this.webSynth.noteOff(note);
       }
     }

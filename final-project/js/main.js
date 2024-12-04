@@ -5,7 +5,15 @@ import { Visualizer } from "./modules/visualizer.js";
 import { KeyboardModule } from "./modules/keyboard.js";
 import { TabManager } from "./modules/tabManager.js";
 
+/**
+ * this is the webSynth class
+ * whic is the main class that initializes and coordinate all synth components
+ */
 class WebSynth {
+  /**
+   * creates a new instance and init core components
+   * set up audio engine, osc, sequencer, keyboard, and viz
+   */
   constructor() {
     console.log("WebSynth constructor called");
     this.audioEngine = new AudioEngine();
@@ -25,9 +33,13 @@ class WebSynth {
     }
   }
 
+  /**
+   * init the ui components and sets up audio init
+   * sets up sliders, keyboard, tabs, and sequencer
+   * sets up audio init on first interaction to handle browser autoblock
+   */
   async initUI() {
     // Initialize everything except audio
-    this.setupSideNav();
     this.initializeSliders();
     this.keyboard = new KeyboardModule(this);
     this.keyboard.setupKeyboard();
@@ -76,31 +88,11 @@ class WebSynth {
       ?.addEventListener("mousedown", initAudioOnFirstMusic);
   }
 
-  setupSideNav() {
-    const menuToggle = document.getElementById("menuToggle");
-    const sidebar = document.querySelector(".sidebar");
-
-    if (!menuToggle || !sidebar) return;
-
-    menuToggle.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-    });
-
-    // Close sidebar when clicking outside
-    document.addEventListener("click", (e) => {
-      const isClickInsideSidebar = sidebar.contains(e.target);
-      const isClickOnMenuButton = menuToggle.contains(e.target);
-
-      if (
-        !isClickInsideSidebar &&
-        !isClickOnMenuButton &&
-        sidebar.classList.contains("open")
-      ) {
-        sidebar.classList.remove("open");
-      }
-    });
-  }
-
+  /**
+   * init all slider controls in the interface
+   * set up event listeners for slider background updates(bicolor)
+   * watch for dynamic added sliders
+   */
   initializeSliders() {
     const updateSliderBackground = (slider) => {
       const min = parseFloat(slider.min) || 0;
@@ -130,6 +122,11 @@ class WebSynth {
     });
   }
 
+  /**
+   * trigger a note on event for both melodic and drum sounds
+   * @param {string} note - The note to play (e.g., 'C4' or 'kick')
+   */
+
   noteOn(note) {
     if (!this.audioEngine.synth1) return;
 
@@ -149,6 +146,10 @@ class WebSynth {
     if (keyElement) keyElement.classList.add("active");
   }
 
+  /**
+   * trigger a note off event for melodic sounds
+   * @param {string} note - The note to stop playing
+   */
   noteOff(note) {
     if (!this.audioEngine.synth1) return;
 
@@ -163,6 +164,10 @@ class WebSynth {
     if (keyElement) keyElement.classList.remove("active");
   }
 
+  /**
+   * binds all control ui elements to their respective audio methods
+   * sets up listeners for osc types, mix, filter, envelope, and other controls
+   */
   bindControls() {
     // Oscillator type controls
     document.querySelectorAll("#osc1Buttons .osc-button").forEach((button) => {
@@ -257,6 +262,10 @@ class WebSynth {
     });
   }
 
+  /**
+   * set up all audio visualizations (waveform, frequency, envelope)
+   * creates and configures visualizer for each type
+   */
   setupAllVisualizations() {
     // First clear any existing visualizers
     this.visualizers.forEach((visualizer) => visualizer.cleanup());
@@ -299,7 +308,7 @@ class WebSynth {
         this.visualizers.set(config.type, visualizer);
       } else {
         console.warn(
-          `Failed to create visualizer for ${config.type}. Canvas or analyser missing.`
+          `Failed to create visualizer for ${config.type}. Canvas or analyser are missing.`
         );
       }
     });

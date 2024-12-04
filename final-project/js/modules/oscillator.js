@@ -1,4 +1,12 @@
+/**
+ * OscillatorModule Class
+ * Manages oscillator parameters and routing
+ */
 export class OscillatorModule {
+  /**
+   * creates a new OscillatorModule instance
+   * @param {AudioEngine} audioEngine - its parent audio engine instance
+   */
   constructor(audioEngine) {
     this.audioEngine = audioEngine;
     this.osc1Type = "triangle";
@@ -7,6 +15,11 @@ export class OscillatorModule {
     this.subGainValue = 0;
   }
 
+  /**
+   * sets the waveform type for an oscillator
+   * @param {number} oscillator - oscillator number (1 or 2)
+   * @param {string} type - waveform type (sine tri etc)
+   */
   setOscillatorType(oscillator, type) {
     const synth =
       oscillator === 1 ? this.audioEngine.synth1 : this.audioEngine.synth2;
@@ -22,6 +35,10 @@ export class OscillatorModule {
     }
   }
 
+  /**
+   * sets the mix balance between oscs
+   * @param {number} value - mix value (0-1)
+   */
   setMix(value) {
     const mix = parseFloat(value);
     const rampTime = 0.016;
@@ -37,6 +54,10 @@ export class OscillatorModule {
     );
   }
 
+  /**
+   * setsthe detune amount for osc 2
+   * @param {number} value - detune value
+   */
   setDetune(value) {
     this.detuneValue = value * 100;
     this.audioEngine.synth2.set({
@@ -44,6 +65,10 @@ export class OscillatorModule {
     });
   }
 
+  /**
+   * sets the sub osc level
+   * @param {number} value -  level value (0-1)
+   */
   setSubOscLevel(value) {
     this.subGainValue = value;
     this.audioEngine.subSynth.volume.value = value * 24 - 24;

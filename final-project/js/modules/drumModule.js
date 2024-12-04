@@ -1,4 +1,12 @@
+/**
+ * DrumModule Class
+ * Handles drum sound creation and triggering
+ */
 export class DrumModule {
+  /**
+   * create a new DrumModule instance
+   * @param {AudioEngine} audioEngine - its parent audio engine instance
+   */
   constructor(audioEngine) {
     this.audioEngine = audioEngine;
     this.drums = {
@@ -10,6 +18,10 @@ export class DrumModule {
     this.createDrums();
   }
 
+  /**
+   * create all drum
+   * sets up kick, snare, hihat, and clap
+   */
   createDrums() {
     // Kick Drum
     this.drums.kick = new Tone.MembraneSynth({
@@ -61,6 +73,10 @@ export class DrumModule {
     }).toDestination();
   }
 
+  /**
+   * triggering a drum sound
+   * @param {string} drumType - type of drum to trigger (kick/snare/hihat/clap)
+   */
   trigger(drumType) {
     switch (drumType) {
       case "kick":
@@ -75,12 +91,6 @@ export class DrumModule {
       case "clap":
         this.drums.clap.triggerAttackRelease("16n");
         break;
-    }
-  }
-
-  setVolume(drumType, volume) {
-    if (this.drums[drumType]) {
-      this.drums[drumType].volume.value = volume;
     }
   }
 }

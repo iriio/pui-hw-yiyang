@@ -1,4 +1,15 @@
+/**
+ * Visualizer Class
+ * Handles audio visualization
+ */
 export class Visualizer {
+  /**
+   * creates a new Visualizer instance
+   * @param {AnalyserNode} analyser - The audio analyser node
+   * @param {HTMLCanvasElement} canvas - The canvas element for drawing
+   * @param {string} type - type of visualization
+   * @param {AudioEngine} audioEngine - The audio engine instance
+   */
   constructor(analyser, canvas, type = "waveform", audioEngine = null) {
     this.analyser = analyser;
     this.canvas = canvas;
@@ -15,6 +26,9 @@ export class Visualizer {
     this.startAnimation();
   }
 
+  /**
+   * sets up the canvas element and sizing
+   */
   setupCanvas() {
     const resizeCanvas = () => {
       const container = this.canvas.parentElement;
@@ -28,17 +42,21 @@ export class Visualizer {
     resizeObserver.observe(this.canvas.parentElement);
   }
 
+  /**
+   * drawe waveform viz (main viz)
+   * @param {Float32Array} data - the audio data to visualize
+   */
   drawWaveform(data) {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // Draw center line
+    // draw center line
     this.ctx.beginPath();
     this.ctx.strokeStyle = "#FF395D";
     this.ctx.moveTo(0, this.canvas.height / 2);
     this.ctx.lineTo(this.canvas.width, this.canvas.height / 2);
     this.ctx.stroke();
 
-    // Draw waveform
+    // draw waveform
 
     const sliceWidth = this.canvas.width / data.length;
     let x = 0;
@@ -61,21 +79,25 @@ export class Visualizer {
     this.ctx.stroke();
   }
 
+  /**
+   * draw frequency visualization
+   * @param {Float32Array} data - the frequency data to visualize
+   */
   drawFrequencySpectrum(data) {
     const width = this.canvas.width;
     const height = this.canvas.height;
 
-    // Clear canvas completely
+    // clear canvas completely
     this.ctx.clearRect(0, 0, width, height);
 
-    // Draw frequency bars
+    // draw frequency bars
     const barWidth = width / data.length;
     const barSpacing = 1;
 
     this.ctx.beginPath();
     this.ctx.moveTo(0, height);
 
-    // Draw the line connecting all frequency points
+    // draw the line connecting all frequency points
     for (let i = 0; i < data.length; i++) {
       const value = Math.max(0, Math.min(1, (data[i] + 140) / 140));
       const x = i * barWidth;
@@ -88,16 +110,19 @@ export class Visualizer {
       }
     }
 
-    // Complete the path
+    // complete the path
     this.ctx.lineTo(width, height);
     this.ctx.lineTo(0, height);
 
-    // Add line on top
+    // add line on top
     this.ctx.strokeStyle = "#A463FF";
     this.ctx.lineWidth = 2;
     this.ctx.stroke();
   }
-  // Keep your original drawEnvelope method
+
+  /**
+   * draw ADSR envelope visualization
+   */
   drawEnvelope() {
     if (!this.audioEngine) return;
 
@@ -107,53 +132,53 @@ export class Visualizer {
     const height = this.canvas.height;
     const padding = 20;
 
-    // Get envelope parameters
+    // get envelope parameters
     const attack = this.audioEngine.synth1.get().envelope.attack;
     const decay = this.audioEngine.synth1.get().envelope.decay;
     const sustain = this.audioEngine.synth1.get().envelope.sustain;
     const release = this.audioEngine.synth1.get().envelope.release;
 
-    // Calculate total time and scaling
-    const totalTime = attack + decay + 1 + release; // Add 1 second for sustain visualization
+    // calculate total time and scaling
+    const totalTime = attack + decay + 1 + release; // add 1s for sustain
     const timeScale = (width - 2 * padding) / totalTime;
     const amplitude = height - 2 * padding;
 
-    // Draw envelope shape
+    // draw envelope shape
     this.ctx.beginPath();
     this.ctx.moveTo(padding, height - padding); // Start at 0
 
-    // Attack
+    // A
     this.ctx.lineTo(padding + attack * timeScale, padding);
 
-    // Decay
+    // D
     this.ctx.lineTo(
       padding + (attack + decay) * timeScale,
       padding + (1 - sustain) * amplitude
     );
 
-    // Sustain
+    // S
     this.ctx.lineTo(
       padding + (attack + decay + 1) * timeScale,
       padding + (1 - sustain) * amplitude
     );
 
-    // Release
+    // R
     this.ctx.lineTo(
       padding + (attack + decay + 1 + release) * timeScale,
       height - padding
     );
 
-    // Style and stroke
+    // style
     this.ctx.strokeStyle = "#00ED95";
     this.ctx.lineWidth = 2;
     this.ctx.stroke();
 
-    // Draw labels
+    // labels
     this.ctx.fillStyle = "#FF99A9";
     this.ctx.font = "12px DIN";
     this.ctx.textAlign = "center";
 
-    // Time labels
+    // Time
     this.ctx.fillText("A", padding + (attack * timeScale) / 2, height - 5);
     this.ctx.fillText(
       "D",
@@ -171,7 +196,7 @@ export class Visualizer {
       height - 5
     );
 
-    // Value labels
+    // Value
     this.ctx.textAlign = "right";
     this.ctx.fillText(
       `${attack.toFixed(2)}s`,
@@ -195,6 +220,9 @@ export class Visualizer {
     );
   }
 
+  /**
+   * starts the animation loop for visualization
+   */
   startAnimation() {
     const draw = () => {
       const data = this.analyser.getValue();
@@ -215,11 +243,5 @@ export class Visualizer {
     };
 
     draw();
-  }
-
-  cleanup() {
-    if (this.animationFrame) {
-      cancelAnimationFrame(this.animationFrame);
-    }
   }
 }

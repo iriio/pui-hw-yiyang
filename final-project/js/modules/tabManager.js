@@ -1,10 +1,21 @@
+/**
+ * TabManager Class
+ * Manages tab switching and visibility
+ */
 export class TabManager {
+  /**
+   * creates a new TabManager instance
+   * @param {WebSynth} webSynth - its parent WebSynth instance
+   */
   constructor(webSynth) {
     this.webSynth = webSynth;
     this.currentTab = "sequence";
     this.setupEventListeners();
   }
 
+  /**
+   * sets up event listeners for tab switching
+   */
   setupEventListeners() {
     document.querySelectorAll(".tab-button").forEach((button) => {
       button.addEventListener("click", () => {
@@ -13,6 +24,10 @@ export class TabManager {
     });
   }
 
+  /**
+   * switches active tab
+   * @param {string} tabId - ID of the tab to switch to
+   */
   switchTab(tabId) {
     this.currentTab = tabId;
 

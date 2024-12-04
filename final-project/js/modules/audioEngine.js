@@ -1,5 +1,13 @@
 import { DrumModule } from "./drumModule.js";
+/**
+ * AudioEngine Class
+ * Handles all audio processing and synthesis
+ */
 export class AudioEngine {
+  /**
+   * create a new AudioEngine instance
+   * init audio components as null
+   */
   constructor() {
     this.synth1 = null;
     this.synth2 = null;
@@ -11,6 +19,10 @@ export class AudioEngine {
     this.drumModule = null;
   }
 
+  /**
+   * init all audio components and routing
+   * set up synths, effects, analyzers, and mixer routing
+   */
   async init() {
     // Create synths
     this.synth1 = new Tone.PolySynth();
@@ -92,6 +104,11 @@ export class AudioEngine {
     }
   }
 
+  /**
+   * update ADSR param for all synths
+   * @param {string} parameter - A/D/S/R
+   * @param {number} value - new value for the param
+   */
   setEnvelopeParameter(parameter, value) {
     const numValue = parseFloat(value);
     const synthParams = {
@@ -112,7 +129,7 @@ export class AudioEngine {
     }
   }
   setFilterParameter(parameter, value) {
-    // Add ramping to prevent clicks
+    // add ramping to prevent clicks
     const rampTime = 0.016; // ~1 frame at 60fps
     this.filter[parameter].linearRampToValueAtTime(
       value,
@@ -120,6 +137,10 @@ export class AudioEngine {
     );
   }
 
+  /**
+   * sets the amount of distortion
+   * @param {number} amount - distortion amount (0-1)
+   */
   setDistortionAmount(amount) {
     this.distortion.distortion = amount;
     this.distortion.wet.value = amount / 2;

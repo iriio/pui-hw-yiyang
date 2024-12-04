@@ -94,6 +94,7 @@
   flex-direction: row;
   flex: 1;
   gap: 8px;
+  width: 100%;
 }
 
 .osc-group {
@@ -109,13 +110,12 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
   width: 100%;
-  flex: 1;
   position: relative;
 }
 
 .osc-button {
-  width: 1fr;
-  padding: 16px 24px 4px;
+  padding: 16px 12px 4px;
+  flex: 1;
 }
 
 /* Label Styles */
