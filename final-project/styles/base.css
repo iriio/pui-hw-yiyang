@@ -330,6 +330,10 @@ body {
   color: #fff;
 }
 
+.sr-only:gray {
+  color: #000;
+}
+
 /* Button Styles */
 .button-wrapper {
   width: 100%;
