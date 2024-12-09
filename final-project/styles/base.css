@@ -160,7 +160,7 @@ body {
 .nav-button:active i,
 .nav-button.active span,
 .nav-button:active span {
-  color: var(--color-secondary);
+  color: #b83510;
   font-weight: 500;
 }
 
