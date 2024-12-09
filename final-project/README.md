@@ -12,7 +12,9 @@ Feel free to refer to this [Markdown Cheat Sheet](https://www.markdownguide.org/
 
 TONE V5.0 is a web-based synthesizer application that allows users to create and manipulate digital music through an interactive interface. The application combines visual design elements reminiscent of vintage synthesizers with modern web technologies, creating a unique digital music-making experience.
 
-## Target Audience
+_Minimum width: **700px**. Website is not displayed if screen width is lower than 700px, though responsive design is implemented beyond that._
+
+### Target Audience
 
 The website targets:
 
@@ -21,7 +23,7 @@ The website targets:
 - Digital artists looking for creative tools
 - Beginners interested in learning about sound synthesis
 
-## Information & Features
+### Information & Features
 
 The application provides:
 
@@ -30,9 +32,9 @@ The application provides:
 - Sequencer functionality for creating musical patterns
 - Educational content through a manual/tutorial section
 
-## Engaging Elements
+### Engaging Elements
 
-### Visual Design
+**Visual Design**
 
 The interface features a retro-inspired design with careful attention to detail, including:
 
@@ -40,14 +42,14 @@ The interface features a retro-inspired design with careful attention to detail,
 - Decorative screws and modular components
 - A vintage monitor-style layout
 
-### Interactive Elements
+**Interactive Elements**
 
 - Real-time visual feedback through canvas visualization
 - Tab-based navigation for different functions
 - Interactive keyboard interface
 - Sequencer for pattern creation
 
-### Accessibility
+**Accessibility**
 
 The application maintains accessibility through:
 
