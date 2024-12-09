@@ -334,7 +334,7 @@ export class SequencerModule {
     bpmLabelContainer.className = "bpm-label-container";
     bpmLabelContainer.innerHTML = `
     <input type="hidden" id="bpm-input" value="120">
-    <label for="bpm-input" class="bpm-label">BPM</label>
+    <label for="bpm-input" id="bpmLabel" class="bpm-label">BPM</label>
     <span id="bpmValue" class="bpm-value">120</span>
     `;
     // Create BPM Button Wrapper
