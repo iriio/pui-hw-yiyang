@@ -333,7 +333,8 @@ export class SequencerModule {
     const bpmLabelContainer = document.createElement("div");
     bpmLabelContainer.className = "bpm-label-container";
     bpmLabelContainer.innerHTML = `
-    <label id="bpmLabel" class="bpm-label" for="bpm-btn">BPM</label>
+    <input type="hidden" id="bpm-input" value="120">
+    <label for="bpm-input" class="bpm-label">BPM</label>
     <span id="bpmValue" class="bpm-value">120</span>
     `;
     // Create BPM Button Wrapper
