@@ -58,6 +58,20 @@ The application maintains accessibility through:
 - Consistent navigation patterns
 - Responsive design considerations
 
+## WAVE Check
+
+- index.html
+  ![WAVE accessibility evaluation for index showing 0 errors](./images/index-WAVE-overview.png)
+  ![WAVE accessibility evaluation details for index page](./images/index-WAVE-detail.png)
+
+- about.html
+  ![WAVE accessibility evaluation for about showing 0 errors](./images/about-WAVE-overview.png)
+  ![WAVE accessibility evaluation details for about page](./images/about-WAVE-detail.png)
+
+- tutorial.html
+  ![WAVE accessibility evaluation for tutorial showing 0 errors](./images/tutorial-WAVE-overview.png)
+  ![WAVE accessibility evaluation details for tutorial page](./images/tutorial-WAVE-detail.png)
+
 ## Part 2: User Interaction
 
 1. **Initial Audio Setup**
