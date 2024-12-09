@@ -330,7 +330,7 @@ body {
   color: #fff;
 }
 
-.sr-only:gray {
+.sr-only.gray {
   color: #000;
 }
 
