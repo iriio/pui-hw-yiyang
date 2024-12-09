@@ -151,6 +151,17 @@
   padding-top: 8px;
 }
 
+#bpm-input {
+  width: 0;
+  height: 0;
+}
+
+.bpm-label {
+  width: 34px;
+  height: 34px;
+  line-height: 2;
+}
+
 .sequencer-play i {
   font-size: 16px;
   color: var(--color-white);

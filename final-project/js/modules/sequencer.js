@@ -333,7 +333,7 @@ export class SequencerModule {
     const bpmLabelContainer = document.createElement("div");
     bpmLabelContainer.className = "bpm-label-container";
     bpmLabelContainer.innerHTML = `
-    <input type="hidden" id="bpm-input" value="120">
+    <input type="text" id="bpm-input" value="120">
     <label for="bpm-input" id="bpmLabel" class="bpm-label">BPM</label>
     <span id="bpmValue" class="bpm-value">120</span>
     `;
