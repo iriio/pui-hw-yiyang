@@ -10,37 +10,137 @@ Feel free to refer to this [Markdown Cheat Sheet](https://www.markdownguide.org/
 
 ## Part 1: Website Description
 
-Describe your website (300 words).
+TONE V5.0 is a web-based synthesizer application that allows users to create and manipulate digital music through an interactive interface. The application combines visual design elements reminiscent of vintage synthesizers with modern web technologies, creating a unique digital music-making experience.
 
-- What is the purpose of your website?
-- Who is the target audience?
-- What information do you convey with your website?
-- How is it interesting and engaging?
+## Target Audience
+
+The website targets:
+
+- Music enthusiasts interested in digital sound synthesis
+- Web developers exploring audio applications
+- Digital artists looking for creative tools
+- Beginners interested in learning about sound synthesis
+
+## Information & Features
+
+The application provides:
+
+- Real-time sound synthesis controls
+- Visual feedback through a visualization container
+- Sequencer functionality for creating musical patterns
+- Educational content through a manual/tutorial section
+
+## Engaging Elements
+
+### Visual Design
+
+The interface features a retro-inspired design with careful attention to detail, including:
+
+- Inset shadows and gradient effects
+- Decorative screws and modular components
+- A vintage monitor-style layout
+
+### Interactive Elements
+
+- Real-time visual feedback through canvas visualization
+- Tab-based navigation for different functions
+- Interactive keyboard interface
+- Sequencer for pattern creation
+
+### Accessibility
+
+The application maintains accessibility through:
+
+- Screen reader support with sr-only classes
+- Clear visual hierarchy
+- Consistent navigation patterns
+- Responsive design considerations
 
 ## Part 2: User Interaction
 
-How a user would interact with your website? For each step, briefly but clearly state the interaction type & how we should reproduce it.
+1. **Initial Audio Setup**
 
-1. Interaction type. Click on X on page Y / scroll on page X, etc.
-2.
+- Click anywhere on the main page to initialize Web Audio
+  _note that console error when initializing is normal. This is a tradeoff between usability ("invisible"initializing on click vs clicking a button every refresh)_
+- Audio engine starts and synthesizer becomes playable
+
+2. **Basic Sound Generation**
+
+- Press keyboard keys A-L to play white notes
+- Press keyboard keys Q-P to play black notes
+- Press number keys 1-4 to trigger drum sounds
+- Click virtual keyboard on screen to play notes with mouse
+
+3. **Sound Shaping**
+
+- Click "DESIGN" tab to access sound controls
+- Adjust oscillator sliders to change sound character:
+  - Move Mix slider to blend between oscillators
+  - Move Detune slider to create width/detuning effect
+  - Move Filter Cutoff to change brightness
+  - Move Resonance to add emphasis
+
+4. **Pattern Creation**
+
+- Click "COMPOSE" tab to access sequencer
+- Press spacebar or click Play button to start/stop sequence
+- Click on sequence steps to select them
+- Play notes to record into selected steps
+- Click recorded notes to delete them
+- Click BPM +/- buttons to adjust tempo
+
+5. **Sound Visualization**
+
+- Observe top display panels showing:
+  - Real-time waveform visualization
+  - Frequency spectrum
+  - ADSR envelope shape
+
+6. **Pattern Modification**
+
+- Click Reverse button to play sequence backwards
+- Click Preset button to cycle through drum patterns
+- Hold Shift while playing notes to record to multiple steps
+- Double-click keys for "sticky" note behavior
+
+7. **Navigation**
+
+- Click nav buttons to move between:
+  - Main studio interface
+  - Tutorial/manual page
+  - About page
 
 ## Part 3: External Tool
 
-Describe what important external tool you used (JavaScript library, Web API, animations, or other). Following the bulleted list format below, reply to each of the prompts.
+**Tone.js**
 
-1. Name of tool1
-   - Why did you choose to use it over other alternatives? (2 sentences max)
-   - How you used it? (2 sentences max)
-   - What does it add to your website? (2 sentences max)
-2. Name of tool2
+- Chosen for its audio synthesis capabilities and abstraction of Web Audio API complexities into a more intuitive interface. Its modular design and comprehensive documentation make it ideal for building synthesizers.
+- Used to create oscillators, filters, effects chain, and handle all audio processing and routing in the synthesizer. The library manages audio timing, synthesis, and sequencing.
+
+**Web Audio API**
+
+- Native browser API that provides low-level audio processing capabilities with minimal latency. Direct browser support means no additional dependencies for core audio functionality.
+- Used as the foundation for audio processing, with Tone.js building upon it for higher-level features. Handles audio context initialization and real-time audio processing.
+
+**Canvas API**
+
+- Native HTML5 API chosen for its efficient rendering capabilities and broad browser support. Perfect for real-time visualization without requiring external libraries.
+- Used to create real-time visualizations of waveforms, frequency spectrum, and envelope shapes. Updates the display 60 times per second to show current audio state.
 
 ## Part 4: Design Iteration
 
-Describe how you iterated on your prototypes, if at all, including any changes you made to your original design while you were implementing your website and the rationale for the changes. (4-8 sentences max)
+**V1-3**
+v1 to v3 of Tone was using the web audio api directly, which was a bit of a challenge since it was a bit more difficult to implement.
+
+**v4**
+Starting from v4, I used Tone.js to abstract the web audio api, which made the implementation much easier and more intuitive.
+
+**v5**
+Starting from v5, I added the sequencer to the synthesizer, which was a bit of a challenge since it was a bit more difficult to implement. However, the rationale behind this is to make the synthesizer more engaging, useful, and educational, as well as to demonstrate the capabilities of the synthesizer.
 
 ## Part 5: Implementation Challenge
 
-What challenges did you experience in implementing your website? (2-4 sentences max)
+The biggest challenge was handling audio timing and synchronization, particularly coordinating the sequencer playback with visual updates and ensuring consistent timing across different browsers. Another significant challenge was managing state across multiple modules (audio engine, sequencer, keyboard) while keeping the code organized and maintainable, especially when implementing features like pattern recording and preset management.
 
 ## Part 6: Generative AI Use and Reflection
 
@@ -57,51 +157,42 @@ For the following aspects of your project, edit the corresponding table cell to 
 - _Usage_: Whether you used / did not use this tool for the aspect. Enter [Yes/No]
 - _Productivity_: Give a rating on whether this tool makes your productivity for X aspect [1-Much Reduced, 2-Reduced, 3-Slightly Reduced, 4-Not Reduced nor Improved, 5-Slightly Improved, 6-Improved, 7-Much Improved].
 
-| Tool Name | Ratings      | design | plan   | write code | debug  | \_ (other?) |
-| :-------- | :----------- | :----- | :----- | :--------- | :----- | :---------- |
-| Tool1     | Usage        | Yes/No | Yes/No | Yes/No     | Yes/No | Yes/No      |
-| Tool1     | Productivity | 1~7    | 1~7    | 1~7        | 1~7    | 1~7         |
-| Tool2     | Usage        | Yes/No | Yes/No | Yes/No     | Yes/No | Yes/No      |
-| Tool2     | Productivity | 1~7    | 1~7    | 1~7        | 1~7    | 1~7         |
+| Tool Name | Ratings      | design | plan | write code | debug | copywriting |
+| :-------- | :----------- | :----- | :--- | :--------- | :---- | :---------- |
+| ChatGPT   | Usage        | No     | Yes  | No         | Yes   | Yes         |
+| ChatGPT   | Productivity | N/A    | 6    | N/A        | 3     | 7           |
 
 ### Usage Reflection
 
 > Impact on your design and plan
 
 - It matched my expectations and plan in [FP2](#generative-ai-use-plan) in that … For example,
-  1. Tool1:
-  2. Tool2:
+  1. ChatGPT was able to help me with basic tasks like copywriting and debugging, which was helpful; though when it comes to more complex tasks, it was not able to help me as much and even dragged me in the wrong direction so I stopped using it for that purpose.
 - It did not match my expectations and plan in [FP2](#generative-ai-use-plan) in that … For example,
-  1. Tool1:
-  2. Tool2:
+  1. I did not end up using Github Copilot since I found it to be more of a distraction than a help.
 - GenAI tool did/did not influence my final design and implementation plan because … For example,
-  1. Tool1:
-  2. Tool2:
+  1. My design was not influenced by the tool since I already had a plan in mind and the tool was not able to help me with that. In addition, my design not as generic in a way that it was not able to be easily implemented by Gen AI.
 
 > Use patterns
 
 - I accepted the generations when … For example,
-  1. Tool1: this tool once suggested … and I adjusted my design according to the suggestion because …
-  2. Tool2:
+  1. ChatGPT: For generic copywriting and debugging CSS, I mostly accepted the generations.
 - I critiqued/evaluated the generated suggestions by … For example,
-  1. Tool1: this tool once suggested … but I modified/rejected the suggestion because …
-  2. Tool2:
+  1. ChatGPT: ChatGPT sometimes suggested implementations without considering the actual context of the project, which was a bit of a distraction.
 
 > Pros and cons of using GenAI tools
 
 - Pros
-  1. Tool1:
-  2. Tool2:
+  1. ChatGPT: Significantly reducing time spent on "busy work" like copywriting and syntax error.
 - Cons
-  1. Tool1:
-  2. Tool2:
+  1. ChatGPT: Sometimes code is wrong and it takes much longer to debug than writing it myself.
 
 ### Usage Log
 
 Document the usage logs (prompts and chat history links) for the GenAI tools you used. Some tools may not have an easy way to share usage logs, just try your best! Some instructions for different tools:
 
-1. [ChatGPT](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) / [Gemini](https://support.google.com/gemini/answer/13743730?hl=en&co=GENIE.Platform%3DDesktop): share the anonymous link to all of your chat histories relevant to this project
-2. [GitHub Copilot (VSCode)](<https://code.visualstudio.com/docs/copilot/copilot-chat#:~:text=You%20can%20export%20all%20prompts%20and%20responses%20for%20a%20chat%20session%20in%20a%20JSON%20file%20with%20the%20Chat%3A%20Export%20Session...%20command%20(workbench.action.chat.export)%20in%20the%20Command%20Palette.>): export chat histories relevant to this project.
+1. [ChatGPT](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq)
+   [chat log](https://chatgpt.com/share/6756718d-c3ac-8013-9851-c898fda94bf4)
 
 ---
 

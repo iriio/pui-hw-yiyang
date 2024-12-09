@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>test</title>
+    <title>TONE - WEB AUDIO SYNTH</title>
 
     <link
       rel="stylesheet"
@@ -20,159 +20,197 @@
       type="text/css"
       href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css"
     />
-
-
-
-  
-
+    <link rel="stylesheet" href="./styles/controls.css" />
+    <link rel="stylesheet" href="./styles/keyboard.css" />
+    <link rel="stylesheet" href="./styles/tabs.css" />
+    <link rel="stylesheet" href="./styles/sequencer.css" />
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/pages.css" />
   </head>
   <body>
     <div class="app-layout">
       <aside class="sidebar">
-        <h1>TONE <BR></BR> WIP <BR></BR> V4.3</h1>
+        <h1>
+          TONE <br />
+          V5.0
+        </h1>
         <nav class="side-nav-content">
-          <div class="nav-button-wrapper button-wrapper button-wrapper">
-            <a href="landing.html" class="nav-button btn light"><i class="ph-light ph-house"></i></a>
+          <div class="nav-button-wrapper button-wrapper">
+            <a href="index.html" class="nav-button btn light"
+              ><i class="ph-light ph-cassette-tape"></i
+            ></a>
           </div>
           <div class="nav-button-wrapper button-wrapper">
-            <a href="index.html" class="nav-button  btn light"><i class="ph-light ph-cassette-tape"></i></a>
+            <a href="tutorial.html" class="nav-button active btn light"
+              ><i class="ph-light ph-book-open-user"></i
+            ></a>
           </div>
           <div class="nav-button-wrapper button-wrapper">
-            <a href="tutorial.html" class="nav-button active btn light"><i class="ph-light ph-book-open-user"></i></a>
+            <a href="about.html" class="nav-button btn light"
+              ><i class="ph-light ph-info"></i
+            ></a>
           </div>
-          <div class="nav-button-wrapper button-wrapper">
-            <a href="about.html" class="nav-button btn light"><i class="ph-light ph-info"></i></a>
-            
-           
-          </div>
-          
         </nav>
         <h2>YIYANG ZHANG</h2>
       </aside>
-      <div class="main-content-wrapper">      <div class="manual-content">
-        <h1 class="manual-title">Web Synthesizer User Manual</h1>
+      <div class="main-content-wrapper">
+        <div class="container">
+          <div class="tab-content-wrapper">
+            <span class="screw top-left"></span>
+            <span class="screw top-right"></span>
 
-        <div class="quick-start">
-            <h2>Quick Start Guide</h2>
-            <ol>
-                <li>Click anywhere on the page to start the synthesizer</li>
-                <li>Use your computer keyboard to play notes (keys A-L)</li>
-                <li>Press numbers 1-4 to play drum sounds</li>
-                <li>Press spacebar to start/stop the sequencer</li>
-            </ol>
-        </div>
+            <div class="manual-content">
+              <h1 id="web-synthesizer-user-manual" class="manual-title">
+                Web Synthesizer User Manual
+              </h1>
 
-        <section class="manual-section">
-            <h2>Playing the Synthesizer</h2>
-            
-            <h3>Keyboard Layout</h3>
-            <div class="content-block">
-                <p>The synthesizer can be played using your computer keyboard:</p>
-                <ul>
+              <div class="section quick-start">
+                <h2>Quick Start Guide</h2>
+                <ol>
+                  <li>Click anywhere on the page to start the synthesizer</li>
+                  <li>Use your computer keyboard to play notes (keys A-L)</li>
+                  <li>Press numbers 1-4 to play drum sounds</li>
+                  <li>Press spacebar to start/stop the sequencer</li>
+                </ol>
+              </div>
+
+              <div class="section manual-section">
+                <h2>Playing the Synthesizer</h2>
+                <h3>Keyboard Layout</h3>
+                <div class="content-block">
+                  The synthesizer can be played using your computer keyboard:
+                  <ul>
                     <li>White keys: A S D F G H J K L ; '</li>
                     <li>Black keys: Q W E R T Y U I O P</li>
-                    <li>Drum pads: 1 (Kick), 2 (Snare), 3 (Hi-hat), 4 (Clap)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="manual-section">
-            <h2>Sound Controls</h2>
-
-            <h3>Oscillators</h3>
-            <div class="content-block">
-                <p>Your synthesizer has two main sound generators (oscillators) and a sub-oscillator for deep bass:</p>
-                <ul>
                     <li>
-                        <strong>Oscillator 1 & 2:</strong> Choose between different waveforms:
-                        <ul>
-                            <li>Sine: Smooth, pure tone</li>
-                            <li>Square: Rich, hollow sound</li>
-                            <li>Sawtooth: Bright, buzzy sound</li>
-                            <li>Triangle: Soft, mellow tone</li>
-                        </ul>
+                      Drum pads: 1 (Kick), 2 (Snare), 3 (Hi-hat), 4 (Clap)
                     </li>
-                    <li><strong>Mix:</strong> Blend between the two oscillators</li>
-                    <li><strong>Sub Level:</strong> Add deep bass by turning up the sub-oscillator</li>
-                </ul>
-            </div>
+                  </ul>
+                </div>
+              </div>
 
-            <h3>Sound Shaping</h3>
-            <div class="content-block">
-                <p>Shape your sound using these controls:</p>
-                <ul>
+              <div class="section manual-section">
+                <h2>Sound Controls</h2>
+                <h3>Oscillators</h3>
+                <div class="content-block">
+                  Your synthesizer has two main sound generators (oscillators)
+                  and a sub-oscillator for deep bass:
+                  <ul>
                     <li>
-                        <strong>Filter:</strong> 
-                        <ul>
-                            <li>Frequency: Controls brightness (turn down for darker sounds)</li>
-                            <li>Resonance: Adds a whistling quality at the filter frequency</li>
-                        </ul>
+                      <strong>Oscillator 1 & 2:</strong> Choose between
+                      different waveforms:
+                      <ul>
+                        <li>Sine: Smooth, pure tone</li>
+                        <li>Square: Rich, hollow sound</li>
+                        <li>Sawtooth: Bright, buzzy sound</li>
+                        <li>Triangle: Soft, mellow tone</li>
+                      </ul>
                     </li>
-                    <li><strong>Drive:</strong> Adds distortion and grit to your sound</li>
-                </ul>
-            </div>
-        </section>
+                    <li>
+                      <strong>Mix:</strong> Blend between the two oscillators
+                    </li>
+                    <li>
+                      <strong>Sub Level:</strong> Add deep bass by turning up
+                      the sub-oscillator
+                    </li>
+                  </ul>
+                </div>
 
-        <section class="manual-section">
-            <h2>Using the Sequencer</h2>
+                <h3>Sound Shaping</h3>
+                <div class="content-block">
+                  Shape your sound using these controls:
+                  <ul>
+                    <li>
+                      <strong>Filter:</strong>
+                      <ul>
+                        <li>
+                          Frequency: Controls brightness (turn down for darker
+                          sounds)
+                        </li>
+                        <li>
+                          Resonance: Adds a whistling quality at the filter
+                          frequency
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Drive:</strong> Adds distortion and grit to your
+                      sound
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-            <h3>Basic Operation</h3>
-            <div class="content-block">
-                <ul>
+              <div class="section manual-section">
+                <h2>Using the Sequencer</h2>
+                <h3>Basic Operation</h3>
+                <div class="content-block">
+                  <ul>
                     <li>Press spacebar or the Play button to start/stop</li>
                     <li>Adjust tempo using the BPM controls</li>
                     <li>Click any step to select it for recording</li>
-                    <li>Press the Reverse button to play the sequence backwards</li>
-                </ul>
-            </div>
+                    <li>
+                      Press the Reverse button to play the sequence backwards
+                    </li>
+                  </ul>
+                </div>
 
-            <h3>Recording Patterns</h3>
-            <div class="content-block">
-                <p>To record a pattern:</p>
-                <ol>
+                <h3>Recording Patterns</h3>
+                <div class="content-block">
+                  To record a pattern:
+                  <ol>
                     <li>Select a step by clicking it</li>
-                    <li>Play notes using your keyboard or click the on-screen keys</li>
+                    <li>
+                      Play notes using your keyboard or click the on-screen keys
+                    </li>
                     <li>Each step can hold up to 3 notes</li>
                     <li>Click any recorded note to delete it</li>
-                </ol>
-            </div>
+                  </ol>
+                </div>
 
-            <div class="tip">
-                <strong>Tip:</strong> Hold Shift while playing notes to add them to multiple steps in sequence!
-            </div>
-        </section>
+                <div class="tip">
+                  <strong>Tip:</strong> Hold Shift while playing notes to add
+                  them to multiple steps in sequence!
+                </div>
+              </div>
 
-        <section class="manual-section">
-            <h2>Keyboard Shortcuts</h2>
-            <div class="shortcut-table">
-                <table>
+              <div class="section manual-section">
+                <h2>Keyboard Shortcuts</h2>
+                <div class="shortcut-table">
+                  <table>
                     <tr>
-                        <th>Key</th>
-                        <th>Function</th>
+                      <td><span class="kbd">Space</span></td>
+                      <td>Start/Stop sequencer</td>
                     </tr>
                     <tr>
-                        <td><kbd>Space</kbd></td>
-                        <td>Start/Stop sequencer</td>
+                      <td><span class="kbd">Shift</span> + Note</td>
+                      <td>Add note to multiple steps</td>
                     </tr>
                     <tr>
-                        <td><kbd>Shift</kbd> + Note</td>
-                        <td>Add note to multiple steps</td>
+                      <td>
+                        <span class="kbd">1</span> - <span class="kbd">4</span>
+                      </td>
+                      <td>Play drum sounds</td>
                     </tr>
                     <tr>
-                        <td><kbd>1</kbd> - <kbd>4</kbd></td>
-                        <td>Play drum sounds</td>
+                      <td>Double-click</td>
+                      <td>Toggle sticky notes</td>
                     </tr>
-                    <tr>
-                        <td>Double-click</td>
-                        <td>Toggle sticky notes</td>
-                    </tr>
-                </table>
+                  </table>
+                </div>
+              </div>
             </div>
-        </section>
-    </div></div>
-
+            <span class="screw bottom-left"></span>
+            <span class="screw bottom-right"></span>
+          </div>
+        </div>
+      </div>
     </div>
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+    ></script>
     <script src="js/tutorial.js"></script>
   </body>
 </html>

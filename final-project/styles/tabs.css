@@ -44,6 +44,7 @@
   width: 10%;
   min-height: fit-content;
   min-width: fit-content;
+  padding: 4px 12px 4px 12px;
 
   /* text buttons padding */
   padding-top: 12px;
@@ -161,6 +162,6 @@
   font-weight: 600;
   color: var(--color-white);
   line-height: 0px;
-  padding-top: 8px;
+  padding-top: 20px;
   text-transform: uppercase;
 }

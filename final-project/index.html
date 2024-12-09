@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>test</title>
+    <title>TONE - WEB AUDIO SYNTH</title>
 
     <link
       rel="stylesheet"
@@ -16,41 +16,44 @@
       href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
     <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css"
-  />
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css"
+    />
 
-  <link rel="stylesheet" href="./styles/variables.css">
-  <link rel="stylesheet" href="./styles/base.css">
-  <link rel="stylesheet" href="./styles/controls.css">
-  <link rel="stylesheet" href="./styles/keyboard.css">
-  <link rel="stylesheet" href="./styles/tabs.css">
-  <link rel="stylesheet" href="./styles/sequencer.css">
-  <link rel="stylesheet" href="./styles/landing.css">
-  <link rel="stylesheet" href="./styles/tutorial.css">
-  <link rel="stylesheet" href="./styles/about.css">
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/controls.css" />
+    <link rel="stylesheet" href="./styles/keyboard.css" />
+    <link rel="stylesheet" href="./styles/tabs.css" />
+    <link rel="stylesheet" href="./styles/sequencer.css" />
   </head>
   <body>
     <div class="app-layout">
       <aside class="sidebar">
-        <h1>TONE <BR></BR> WIP <BR></BR> V4.3</h1>
+        <h1>
+          TONE <br />
+          V5.0
+        </h1>
         <nav class="side-nav-content">
-          <div class="nav-button-wrapper button-wrapper button-wrapper">
-            <a href="./landing.html" class="nav-button btn light"><i class="ph-light ph-house"></i><span class="sr-only">home</span></a>
+          <div class="nav-button-wrapper button-wrapper">
+            <a href="./index.html" class="nav-button active btn light"
+              ><i class="ph-light ph-cassette-tape"></i
+              ><span class="sr-only">studio</span></a
+            >
           </div>
           <div class="nav-button-wrapper button-wrapper">
-            <a href="./index.html" class="nav-button active btn light"><i class="ph-light ph-cassette-tape"></i><span class="sr-only">studio</span></a>
+            <a href="./tutorial.html" class="nav-button btn light"
+              ><i class="ph-light ph-book-open-user"></i
+              ><span class="sr-only">tutorial</span></a
+            >
           </div>
           <div class="nav-button-wrapper button-wrapper">
-            <a href="./tutorial.html" class="nav-button btn light"><i class="ph-light ph-book-open-user"></i><span class="sr-only">tutorial</span></a>
+            <a href="./about.html" class="nav-button btn light"
+              ><i class="ph-light ph-info"></i
+              ><span class="sr-only">about</span></a
+            >
           </div>
-          <div class="nav-button-wrapper button-wrapper">
-            <a href="./about.html" class="nav-button btn light"><i class="ph-light ph-info"></i><span class="sr-only">about</span></a>
-            
-           
-          </div>
-          
         </nav>
         <h2>YIYANG ZHANG</h2>
       </aside>
@@ -64,7 +67,7 @@
                 <canvas id="waveform"></canvas>
               </div>
               <div class="viz-container">
-                <span class="viz-label">Raw Signal</span>
+                <span class="viz-label">Frequency</span>
                 <canvas id="preFilterVisualizer"></canvas>
               </div>
               <div class="viz-container">
@@ -73,22 +76,17 @@
               </div>
             </div>
           </div>
-       
-            <div class="tab-buttons">
-              <button
-                class="tab-button active button-preset"
-                data-tab="sequence"
-              >
-                COMPOSE
-              </button>
-              <button class="tab-button button-preset" data-tab="design">
-                DESIGN
-              </button>
-            </div>
-         
+
+          <div class="tab-buttons">
+            <button class="tab-button active button-preset" data-tab="sequence">
+              COMPOSE
+            </button>
+            <button class="tab-button button-preset" data-tab="design">
+              DESIGN
+            </button>
+          </div>
+
           <div class="tab-container">
-
-
             <div class="tab-content-wrapper">
               <span class="screw top-left"></span>
               <span class="screw top-right"></span>
@@ -122,9 +120,16 @@
                         <!-- OSC 1 -->
                         <fieldset class="osc-group">
                           <legend id="osc1Label">OSC 1</legend>
-                          <div class="osc-buttons" id="osc1Buttons" aria-labelledby="osc1Label">
+                          <div
+                            class="osc-buttons"
+                            id="osc1Buttons"
+                            aria-labelledby="osc1Label"
+                          >
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button active btn dark"
                                 data-type="sine"
@@ -134,7 +139,10 @@
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button btn dark"
                                 data-type="square"
@@ -144,7 +152,10 @@
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button btn dark"
                                 data-type="sawtooth"
@@ -154,7 +165,10 @@
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button btn dark"
                                 data-type="triangle"
@@ -165,13 +179,20 @@
                             </div>
                           </div>
                         </fieldset>
-                      
+
                         <!-- OSC 2 -->
                         <fieldset class="osc-group">
                           <legend id="osc2Label">OSC 2</legend>
-                          <div class="osc-buttons" id="osc2Buttons" aria-labelledby="osc2Label">
+                          <div
+                            class="osc-buttons"
+                            id="osc2Buttons"
+                            aria-labelledby="osc2Label"
+                          >
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button active btn dark"
                                 data-type="sine"
@@ -181,7 +202,10 @@
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button btn dark"
                                 data-type="square"
@@ -191,7 +215,10 @@
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button btn dark"
                                 data-type="sawtooth"
@@ -201,7 +228,10 @@
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button btn dark"
                                 data-type="triangle"
@@ -213,7 +243,7 @@
                           </div>
                         </fieldset>
                       </div>
-                      
+
                       <div class="control">
                         <label id="mixLabel" for="oscMix">Mix</label>
                         <div class="input-container">
@@ -226,12 +256,13 @@
                             value="0.5"
                             aria-labelledby="mixLabel"
                           />
-                          
                         </div>
                       </div>
                       <div class="control">
-                        <label id="subOscLabel" for="subOsc">Sub Oscillator</label>
-                        <div class="input-container ">
+                        <label id="subOscLabel" for="subOsc"
+                          >Sub Oscillator</label
+                        >
+                        <div class="input-container">
                           <input
                             type="range"
                             id="subOsc"
@@ -245,7 +276,7 @@
                       </div>
                       <div class="control">
                         <label id="detuneLabel" for="detune">Detune</label>
-                        <div class="input-container ">
+                        <div class="input-container">
                           <input
                             type="range"
                             id="detune"
@@ -268,7 +299,7 @@
                     <div class="control-container">
                       <div class="control">
                         <label id="cutoffLabel" for="filterFreq">Cutoff</label>
-                        <div class="input-container ">
+                        <div class="input-container">
                           <input
                             type="range"
                             id="filterFreq"
@@ -281,8 +312,10 @@
                         </div>
                       </div>
                       <div class="control">
-                        <label id="resonanceLabel" for="filterRes">Resonance</label>
-                        <div class="input-container ">
+                        <label id="resonanceLabel" for="filterRes"
+                          >Resonance</label
+                        >
+                        <div class="input-container">
                           <input
                             type="range"
                             id="filterRes"
@@ -297,9 +330,17 @@
                       <div class="control">
                         <fieldset class="osc-group">
                           <legend id="filterTypeLabel">Filter Type</legend>
-                          <div id="filterTypeButtons" class="osc-buttons" role="group" aria-labelledby="filterTypeLabel">
+                          <div
+                            id="filterTypeButtons"
+                            class="osc-buttons"
+                            role="group"
+                            aria-labelledby="filterTypeLabel"
+                          >
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button active btn dark"
                                 data-type="lowpass"
@@ -309,7 +350,10 @@
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button btn dark"
                                 data-type="highpass"
@@ -319,7 +363,10 @@
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button btn dark"
                                 data-type="bandpass"
@@ -329,7 +376,10 @@
                               </button>
                             </div>
                             <div class="button-wrapper">
-                              <div class="indicator-light" aria-hidden="true"></div>
+                              <div
+                                class="indicator-light"
+                                aria-hidden="true"
+                              ></div>
                               <button
                                 class="osc-button btn dark"
                                 data-type="notch"
@@ -341,10 +391,12 @@
                           </div>
                         </fieldset>
                       </div>
-                      
+
                       <div class="control">
-                        <label id="driveAmountLabel" for="driveAmount">Drive Amount</label>
-                        <div class="input-container ">
+                        <label id="driveAmountLabel" for="driveAmount"
+                          >Drive Amount</label
+                        >
+                        <div class="input-container">
                           <input
                             type="range"
                             id="driveAmount"
@@ -367,7 +419,7 @@
                     <div class="control-container">
                       <div class="control">
                         <label id="attackLabel" for="attack">Attack</label>
-                        <div class="input-container ">
+                        <div class="input-container">
                           <input
                             type="range"
                             id="attack"
@@ -381,7 +433,7 @@
                       </div>
                       <div class="control">
                         <label id="decayLabel" for="decay">Decay</label>
-                        <div class="input-container ">
+                        <div class="input-container">
                           <input
                             type="range"
                             id="decay"
@@ -395,7 +447,7 @@
                       </div>
                       <div class="control">
                         <label id="sustainLabel" for="sustain">Sustain</label>
-                        <div class="input-container ">
+                        <div class="input-container">
                           <input
                             type="range"
                             id="sustain"
@@ -409,7 +461,7 @@
                       </div>
                       <div class="control">
                         <label id="releaseLabel" for="release">Release</label>
-                        <div class="input-container ">
+                        <div class="input-container">
                           <input
                             type="range"
                             id="release"
@@ -432,12 +484,8 @@
             <div class="transport-controls"></div>
           </div>
         </div>
-        <div id="keyboard" class="keyboard">
-
-        </div>
+        <div id="keyboard" class="keyboard"></div>
       </div>
-
-
     </div>
 
     <script src="https://unpkg.com/tone"></script>
