@@ -176,3 +176,7 @@
   padding-top: 20px;
   text-transform: uppercase;
 }
+
+.sequencer-play btn {
+  gap: 8px;
+}

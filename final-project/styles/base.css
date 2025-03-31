@@ -348,6 +348,7 @@ body {
 .btn {
   position: relative;
   display: flex;
+  gap: 8px;
   flex: 1;
   align-items: center;
   justify-content: center;
